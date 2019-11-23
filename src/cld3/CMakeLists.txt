@@ -1,9 +1,15 @@
 # This cmake scripts only builds a static cld3 lib and the unittests.
+cmake_minimum_required(VERSION 3.10)
+
+set(CMAKE_C_COMPILER gcc-8)
+set(CMAKE_CXX_COMPILER g++-8)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3")
 
 project(cld3)
-
-# Old versions of cmake dont search/find protobuf lite
-cmake_minimum_required(VERSION 3.9)
 
 find_package(Protobuf REQUIRED)
 message(STATUS "Protobuf_FOUND= ${Protobuf_FOUND}")

@@ -17,10 +17,10 @@ add_executable(tgnews
     src/utils.hpp
     src/html_parse.hpp)
 
-add_subdirectory(src/cld3)
-add_subdirectory(src/lexbor)
-
 target_include_directories(tgnews PUBLIC src/lexbor/source)
 
-target_link_libraries(tgnews -lstdc++fs cld3 lexbor)
+target_link_libraries(tgnews
+    -lstdc++fs
+    ${CMAKE_SOURCE_DIR}/src/cld3/build/libcld3.a
+    ${CMAKE_SOURCE_DIR}/src/lexbor/build/liblexbor_static.a)
 
