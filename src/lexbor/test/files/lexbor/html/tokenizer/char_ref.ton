@@ -1,0 +1,664 @@
+[
+    /*
+    * Tests for character reference (entities)
+    * https://html.spec.whatwg.org/multipage/parsing.html#character-reference-state
+    */
+
+    /* in text */
+    {
+        "data": "abc&#1234cde",
+        "tokens": [
+            {
+                "text": "abcӒcde",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+    {
+        "data": "&AElig;",
+        "tokens": [
+            {
+                "text": "Æ",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+    {
+        "data": "&AElig",
+        "tokens": [
+            {
+                "text": "Æ",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+    {
+        "data": "&AEli",
+        "tokens": [
+            {
+                "text": "&AEli",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+    {
+        "data": "&AElig;&Afr;",
+        "tokens": [
+            {
+                "text": "Æ𝔄",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+    {
+        "data": "&AElit&Afr;",
+        "tokens": [
+            {
+                "text": "&AElit𝔄",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+    {
+        "data": "&AElig; &Afr;",
+        "tokens": [
+            {
+                "text": "Æ 𝔄",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+    {
+        "data": "&AElig ; &Afr;",
+        "tokens": [
+            {
+                "text": "Æ ; 𝔄",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+    {
+        "data": "&AEligqwe",
+        "tokens": [
+            {
+                "text": "Æqwe",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+    {
+        "data": "&AElig123",
+        "tokens": [
+            {
+                "text": "Æ123",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+    {
+        "data": "AElig&AEligAElig",
+        "tokens": [
+            {
+                "text": "AEligÆAElig",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+    {
+        "data": "&DownArrow;",
+        "tokens": [
+            {
+                "text": "↓",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+    {
+        "data": "&Downarrow;",
+        "tokens": [
+            {
+                "text": "⇓",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+    {
+        "data": "&DownArrowBar;",
+        "tokens": [
+            {
+                "text": "⤓",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+    {
+        "data": "&DownArrow Bar;",
+        "tokens": [
+            {
+                "text": "&DownArrow Bar;",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+    {
+        "data": "&nLt;",
+        "tokens": [
+            {
+                "text": "≪⃒",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+    {
+        "data": "&nLt;a",
+        "tokens": [
+            {
+                "text": "≪⃒a",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+    {
+        "data": "b&nLt;a",
+        "tokens": [
+            {
+                "text": "b≪⃒a",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+    {
+        "data": "&acir",
+        "tokens": [
+            {
+                "text": "&acir",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+    {
+        "data": "&aci",
+        "tokens": [
+            {
+                "text": "&aci",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+    {
+        "data": "&ac",
+        "tokens": [
+            {
+                "text": "&ac",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+    {
+        "data": "&a",
+        "tokens": [
+            {
+                "text": "&a",
+                "text-parser": "char_ref"
+            }
+        ]
+    },    
+    {
+        "data": "&",
+        "tokens": [
+            {
+                "text": "&",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+    {
+        "data": "\r\n",
+        "tokens": [
+            {
+                "text": "\n",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+    {
+        "data": "\r\r\n",
+        "tokens": [
+            {
+                "text": "\n\n",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+    {
+        "data": "\n",
+        "tokens": [
+            {
+                "text": "\n",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+    {
+        "data": "\n\r",
+        "tokens": [
+            {
+                "text": "\n\n",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+    {
+        "data": "\u0000",
+        "tokens": [ 
+            {
+                "text": "�",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+    {
+        "data": "a\u0000b",
+        "tokens": [ 
+            {
+                "text": "a�b",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+    {
+        "data": "\u0000b",
+        "tokens": [ 
+            {
+                "text": "�b",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+    {
+        "data": "a\u0000",
+        "tokens": [ 
+            {
+                "text": "a�",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+    {
+        "data": "a\u0000&DownArrowBar;",
+        "tokens": [ 
+            {
+                "text": "a�⤓",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+    {
+        "data": "&acirc\u0000&DownArrowBar;",
+        "tokens": [ 
+            {
+                "text": "â�⤓",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+    {
+        "data": "&AEli var asdasd = 131312;
+    var ggff = \"sdfsdf\";
+      &AElig;&acute&acute; &Agrave;
+    <!--<script --</script>\r\r\r\r\n&between",
+        "tokens": [ 
+            {
+                "text": "&AEli var asdasd = 131312;
+    var ggff = \"sdfsdf\";
+      Æ´´ À
+    ",
+                "text-parser": "char_ref"
+            },
+            {
+                "tag": "!--",
+                "text": "<script --</script>\n\n\n\n&between",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+
+    /* in attributes */
+    {
+        "data": "&DownArrowBar;",
+        "tokens": [
+            {
+                "text": "⤓",
+                "text-parser": "char_ref_attr"
+            }
+        ]
+    },
+    {
+        "data": "&acirc=",
+        "tokens": [
+            {
+                "text": "&acirc=",
+                "text-parser": "char_ref_attr"
+            }
+        ]
+    },
+    {
+        "data": "&acircr",
+        "tokens": [
+            {
+                "text": "&acircr",
+                "text-parser": "char_ref_attr"
+            }
+        ]
+    },
+    {
+        "data": "&acirc",
+        "tokens": [
+            {
+                "text": "â",
+                "text-parser": "char_ref_attr"
+            }
+        ]
+    },
+    {
+        "data": "/ololo/?arg=1&redirect=123",
+        "tokens": [
+            {
+                "text": "/ololo/?arg=1&redirect=123",
+                "text-parser": "char_ref_attr"
+            }
+        ]
+    },
+    {
+        "data": "/ololo/?arg=1&acirc",
+        "tokens": [
+            {
+                "text": "/ololo/?arg=1â",
+                "text-parser": "char_ref_attr"
+            }
+        ]
+    },
+    {
+        "data": "&acir",
+        "tokens": [
+            {
+                "text": "&acir",
+                "text-parser": "char_ref_attr"
+            }
+        ]
+    },
+    {
+        "data": "&aci",
+        "tokens": [
+            {
+                "text": "&aci",
+                "text-parser": "char_ref_attr"
+            }
+        ]
+    },
+    {
+        "data": "&ac",
+        "tokens": [
+            {
+                "text": "&ac",
+                "text-parser": "char_ref_attr"
+            }
+        ]
+    },
+    {
+        "data": "&a",
+        "tokens": [
+            {
+                "text": "&a",
+                "text-parser": "char_ref_attr"
+            }
+        ]
+    },    
+    {
+        "data": "&",
+        "tokens": [
+            {
+                "text": "&",
+                "text-parser": "char_ref_attr"
+            }
+        ]
+    },
+
+    /* in numeric */
+    {
+        "data": "&#80",
+        "tokens": [
+            {
+                "text": "P",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+    {
+        "data": "&#80v",
+        "tokens": [
+            {
+                "text": "Pv",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+    {
+        "data": "a&#80v",
+        "tokens": [
+            {
+                "text": "aPv",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+    {
+        "data": "a&#654654654654654646546v",
+        "tokens": [
+            {
+                "text": "a�v",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+    {
+        "data": "&#1024",
+        "tokens": [
+            {
+                "text": "Ѐ",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+    {
+        "data": "&#j",
+        "tokens": [
+            {
+                "text": "&#j",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+    {
+        "data": "&#jgf",
+        "tokens": [
+            {
+                "text": "&#jgf",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+
+    /* in hexademical */
+    {
+        "data": "&#x80",
+        "tokens": [
+            {
+                "text": "€",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+    {
+        "data": "&#x80&#x80",
+        "tokens": [
+            {
+                "text": "€€",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+    {
+        "data": "&#x80v&#x80",
+        "tokens": [
+            {
+                "text": "€v€",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+    {
+        "data": "&#x80 &#x80",
+        "tokens": [
+            {
+                "text": "€ €",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+    {
+        "data": "&#xAAAD &#x80 hm",
+        "tokens": [
+            {
+                "text": "ꪭ € hm",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+    {
+        "data": "&#x9F",
+        "tokens": [
+            {
+                "text": "Ÿ",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+    {
+        "data": "&#x11FFFF",
+        "tokens": [
+            {
+                "text": "�",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+    {
+        "data": "&#x00",
+        "tokens": [
+            {
+                "text": "�",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+    {
+        "data": "&#x00&#x00",
+        "tokens": [
+            {
+                "text": "��",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+    {
+        "data": "&#xD800",
+        "tokens": [
+            {
+                "text": "�",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+    {
+        "data": "&#xDAFF",
+        "tokens": [
+            {
+                "text": "�",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+    {
+        "data": "&#xDFFF",
+        "tokens": [
+            {
+                "text": "�",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+    {
+        "data": "&#xd",
+        "tokens": [
+            {
+                "text": "\r",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+    {
+        "data": "&#xj",
+        "tokens": [
+            {
+                "text": "&#xj",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+    {
+        "data": "&#xjgf",
+        "tokens": [
+            {
+                "text": "&#xjgf",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+    {
+        "data": "&nbsp;",
+        "tokens": [
+            {
+                "text": " ",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+    {
+        "data": "ab&nbsp;cd",
+        "tokens": [
+            {
+                "text": "ab cd",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+    {
+        "data": "&nbsp",
+        "tokens": [
+            {
+                "text": " ",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+    {
+        "data": "ab&nbspcd",
+        "tokens": [
+            {
+                "text": "ab cd",
+                "text-parser": "char_ref"
+            }
+        ]
+    },
+]
