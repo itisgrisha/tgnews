@@ -3,6 +3,7 @@
 
 #include "utils.hpp"
 #include "html_parse.hpp"
+#include "debug.hpp"
 
 
 int main(int argc, char *argv[]) {
@@ -13,20 +14,8 @@ int main(int argc, char *argv[]) {
 
     if (task == "languages") {
 
-    } else if (task == "print") {
-        for (const auto& file : html_files) {
-            HTMLDocument kek(file);
-            std::cout << "META\n";
-            for (const auto& key : kek.GetMetaKeys()) {
-                std::cout << "  " << key << ": " << kek.GetMeta(key) << std::endl;
-            }
-            std::cout << "\nRelated Links\n";
-            for (const auto& link : kek.GetLinks()) {
-                std::cout << "  " << link << std::endl;
-            }
-            std::cout << "\nRaw Text\n";
-            std::cout << "  " << kek.GetText() << std::endl;
-        }
+    } else if (task == "dump") {
+        MakeTsv(html_files, argv[3]);
     }
     
     return 0;

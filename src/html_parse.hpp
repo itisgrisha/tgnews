@@ -1,3 +1,4 @@
+#pragma once
 
 #include "lexbor/html/parser.h"
 #include "lexbor/dom/interfaces/element.h"
@@ -105,7 +106,10 @@ private:
         LXBCollection collection(lxb_dom_interface_document(document_), "meta");
         for (int i = 0; i < collection.Size(); ++i) {
             auto element = collection[i];
-            meta_[GetRawAttribute(element, "property")] = GetRawAttribute(element, "content");
+            auto property = GetRawAttribute(element, "property");
+            if (property.size() > 0) {
+                meta_[property] = GetRawAttribute(element, "content");
+            }
         }
     }
 
