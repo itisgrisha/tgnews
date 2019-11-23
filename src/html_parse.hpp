@@ -137,7 +137,10 @@ private:
                 1);
             for (int i = 0; i < lxb_dom_collection_length(collection_a); ++i) {
                 auto element = lxb_dom_collection_element(collection_a, i);
-                related_links_.emplace_back(GetRawAttribute(element, "href"));
+                auto href = GetRawAttribute(element, "href");
+                if (href.size() > 0) {
+                    related_links_.emplace_back(href);
+                }
             }
             lxb_dom_collection_destroy(collection_a, false);
         }
