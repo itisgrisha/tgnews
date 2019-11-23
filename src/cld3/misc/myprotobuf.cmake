@@ -50,6 +50,7 @@ function(MY_PROTOBUF_GENERATE_CPP PATH SRCS HDRS)
       DEPENDS ${ABS_FIL}
       COMMENT "Running C++ protocol buffer compiler on ${FIL}"
       VERBATIM )
+    message("KEK ${CMAKE_CURRENT_BINARY_DIR}/${PATH} ${_protobuf_include_path} ${ABS_FIL}")
   endforeach()
 
   set_source_files_properties(${${SRCS}} ${${HDRS}} PROPERTIES GENERATED TRUE)

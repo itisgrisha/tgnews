@@ -1,12 +1,6 @@
 # This cmake scripts only builds a static cld3 lib and the unittests.
 cmake_minimum_required(VERSION 3.10)
 
-set(CMAKE_C_COMPILER gcc-8)
-set(CMAKE_CXX_COMPILER g++-8)
-
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED True)
-
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3")
 
 project(cld3)
@@ -63,5 +57,4 @@ add_library(${PROJECT_NAME}
 	src/script_span/text_processing.h
 	src/script_span/fixunicodevalue.cc
 	)
-
 
