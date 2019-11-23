@@ -1,3 +1,5 @@
+cmake_minimum_required(VERSION 3.10)
+
 set(CMAKE_C_COMPILER gcc-8)
 set(CMAKE_CXX_COMPILER g++-8)
 
@@ -12,6 +14,13 @@ project(tgnews)
 
 add_executable(tgnews
     src/tgnews.cpp
-    src/utils.hpp)
+    src/utils.hpp
+    src/html_parse.hpp)
 
-target_link_libraries(tgnews -lstdc++fs)
+add_subdirectory(src/cld3)
+add_subdirectory(src/lexbor)
+
+target_include_directories(tgnews PUBLIC src/lexbor/source)
+
+target_link_libraries(tgnews -lstdc++fs cld3 lexbor)
+
