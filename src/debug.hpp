@@ -1,4 +1,5 @@
 #include <fstream>
+#include <iostream>
 #include <unordered_map>
 #include <unordered_set>
 #include <string>
@@ -7,13 +8,19 @@
 
 #include "html_parse.hpp"
 
+std::vector<HTMLDocument> LoadDocs(const std::vector<std::string>& files) {
+    std::vector<HTMLDocument> documents;
+    for (const auto& file : files) {
+        documents.emplace_back(file);
+        documents.back().SetMeta("path", file);
+    }
+    return documents;
+}
 
-void MakeTsv(const std::vector<std::string>& files, const std::string& output_fname) {
+void MakeTsv(const std::vector<HTMLDocument>& documents, const std::string& output_fname) {
     std::unordered_map<std::string, std::vector<std::string>> result;
     size_t total = 0;
-    for (const auto& file : files) {
-        HTMLDocument doc(file);
-        result["path"].emplace_back(file);
+    for (const auto& doc : documents) {
         std::string links;
         for (const auto& link : doc.GetLinks()) {
             links += link + ","; 

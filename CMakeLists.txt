@@ -22,6 +22,7 @@ add_executable(tgnews
     src/tgnews.cpp
     src/utils.hpp
     src/html_parse.hpp
+    src/langrec.hpp
     src/debug.hpp)
 
 target_include_directories(tgnews PUBLIC

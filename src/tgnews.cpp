@@ -12,12 +12,12 @@ int main(int argc, char *argv[]) {
 
     auto html_files = GlobHTML(input_folder);
 
+    auto docs = LoadDocs(html_files);
+
     if (task == "languages") {
-        auto j = SortByLanguage(html_files, input_folder);
-
-
     } else if (task == "dump") {
-        MakeTsv(html_files, argv[3]);
+        RecognizeLanguage(&docs);
+        MakeTsv(docs, argv[3]);
     }
     
     return 0;

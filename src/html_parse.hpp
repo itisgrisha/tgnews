@@ -13,10 +13,9 @@ class LXBCollection {
 public:
     LXBCollection(lxb_dom_document_t* document,
                   const std::string& tag_name) {
-        document_ = document;
-        collection_ = lxb_dom_collection_make(document_, 50);
+        collection_ = lxb_dom_collection_make(document, 50);
         lxb_dom_elements_by_tag_name(
-            lxb_dom_interface_element(document_),
+            lxb_dom_interface_element(document),
             collection_,
             reinterpret_cast<const lxb_char_t*>(tag_name.c_str()),
             tag_name.size());
@@ -32,12 +31,10 @@ public:
 
     ~LXBCollection() {
         lxb_dom_collection_destroy(collection_, false);
-        document_ = nullptr;
     }
 
 private:
     lxb_dom_collection_t* collection_;
-    lxb_dom_document_t* document_;
 };
 
 
@@ -65,13 +62,35 @@ public:
         return meta_.at(key);
     }
 
+    void SetMeta(const std::string& key, const std::string& value) {
+        meta_[key] = value;
+    }
+
     const std::vector<std::string> GetLinks() const {
         return related_links_;
     }
 
+    HTMLDocument(const HTMLDocument& other) = delete;
+    HTMLDocument& operator=(const HTMLDocument& other) = delete;
+
+    HTMLDocument(HTMLDocument&& other) {
+        text_ = std::move(other.text_);
+        meta_ = std::move(other.meta_);
+        related_links_ = std::move(other.related_links_);
+
+        html_ = other.html_;
+        document_ = other.document_;
+        html_size_ = other.html_size_;
+        other.html_ = nullptr;
+        other.document_ = nullptr;
+        other.html_size_ = 0;
+    }
+
     ~HTMLDocument() {
-        delete[] html_;
-        lxb_html_document_destroy(document_);
+        if (document_ != nullptr) {
+            delete[] html_;
+            lxb_html_document_destroy(document_);
+        }
     }
 
 private:
