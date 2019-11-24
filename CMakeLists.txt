@@ -23,6 +23,7 @@ add_executable(tgnews
     src/tokenize.hpp
     src/langrec.hpp
     src/debug.hpp
+    src/io.hpp
 )
 
 target_include_directories(tgnews PUBLIC

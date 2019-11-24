@@ -7,15 +7,8 @@
 #include <algorithm>
 
 #include "html_parse.hpp"
+#include "io.hpp"
 
-std::vector<HTMLDocument> LoadDocs(const std::vector<std::string>& files) {
-    std::vector<HTMLDocument> documents;
-    for (const auto& file : files) {
-        documents.emplace_back(file);
-        documents.back().SetMeta("path", file);
-    }
-    return documents;
-}
 
 void MakeTsv(const std::vector<HTMLDocument>& documents, const std::string& output_fname) {
     std::unordered_set<std::string> keys;

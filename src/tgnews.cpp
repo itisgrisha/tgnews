@@ -18,7 +18,7 @@ int main(int argc, char *argv[]) {
 
     if (task == "languages") {
         RecognizeLanguage(&docs);
-
+        DumpLanguage(docs, input_folder);
     } else if (task == "dump") {
         RecognizeLanguage(&docs);
         MakeTsv(docs, argv[3]);
