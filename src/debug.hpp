@@ -18,9 +18,18 @@ std::vector<HTMLDocument> LoadDocs(const std::vector<std::string>& files) {
 }
 
 void MakeTsv(const std::vector<HTMLDocument>& documents, const std::string& output_fname) {
+    std::unordered_set<std::string> keys;
+    for (const auto& doc : documents) {
+        for (const auto& key : doc.GetMetaKeys()) {
+            keys.emplace(key);
+        }
+    }
     std::unordered_map<std::string, std::vector<std::string>> result;
     size_t total = 0;
     for (const auto& doc : documents) {
+        //if (doc.GetMeta("path") == "/eee/tgnews/data/20191121/00/2653864115930851288.html") {
+        //    std::cout << "KEK" <<std::endl;
+        //}
         std::string links;
         for (const auto& link : doc.GetLinks()) {
             links += link + ","; 
@@ -35,11 +44,7 @@ void MakeTsv(const std::vector<HTMLDocument>& documents, const std::string& outp
         text.erase(std::remove(text.begin(), text.end(), '\t'), text.end()); 
         text.erase(std::remove(text.begin(), text.end(), '\n'), text.end()); 
         result["text"].emplace_back(text);
-        for (const auto& key : doc.GetMetaKeys()) {
-            auto it = result.find(key);
-            if (it == result.end()) {
-                result.emplace(std::make_pair(key, std::vector<std::string>(total, "")));
-            }
+        for (const auto& key : keys) {
             text = doc.GetMeta(key);
             text.erase(std::remove(text.begin(), text.end(), '\t'), text.end()); 
             text.erase(std::remove(text.begin(), text.end(), '\n'), text.end()); 
@@ -50,23 +55,25 @@ void MakeTsv(const std::vector<HTMLDocument>& documents, const std::string& outp
 
     std::ofstream ostream;
     ostream.open(output_fname);
-    std::vector<std::string> keys;
-    for (const auto& key : result) {
-        keys.emplace_back(key.first);
+    std::vector<std::string> keys_vec{keys.begin(), keys.end()};
+    keys_vec.push_back("text");
+    keys_vec.push_back("related_links");
+    for (int i = 0; i + 1 < keys_vec.size(); ++i) {
+        ostream << keys_vec[i] << "\t";
     }
-    for (int i = 0; i + 1 < keys.size(); ++i) {
-        ostream << keys[i] << "\t";
-    }
-    ostream << keys.back() << "\n";
+    ostream << keys_vec.back() << "\n";
     for (int i = 0; i + 1 < total; ++i) {
-        for (int j = 0; j + 1 < keys.size(); ++j) {
-            ostream << result[keys[j]][i] << "\t";
+        for (int j = 0; j + 1 < keys_vec.size(); ++j) {
+            //if (result[keys_vec[j]][i] == "/eee/tgnews/data/20191121/00/2653864115930851288.html") {
+            //    std::cout << "kaka" << std::endl;
+            //}
+            ostream << result[keys_vec[j]][i] << "\t";
         }
-        ostream << result[keys.back()][i] << "\n";
+        ostream << result[keys_vec.back()][i] << "\n";
     }
-    for (int j = 0; j + 1 < keys.size(); ++j) {
-        ostream << result[keys[j]].back() << "\t";
+    for (int j = 0; j + 1 < keys_vec.size(); ++j) {
+        ostream << result[keys_vec[j]].back() << "\t";
     }
-    ostream << result[keys.back()].back() << "\n";
+    ostream << result[keys_vec.back()].back() << "\n";
     ostream.close();
 }

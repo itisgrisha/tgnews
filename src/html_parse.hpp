@@ -59,7 +59,11 @@ public:
     }
 
     const std::string GetMeta(const std::string& key) const {
-        return meta_.at(key);
+        auto it = meta_.find(key);
+        if (it == meta_.end()) {
+            return {""};
+        }
+        return it->second;
     }
 
     void SetMeta(const std::string& key, const std::string& value) {

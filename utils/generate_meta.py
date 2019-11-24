@@ -4,7 +4,7 @@ import os
 
 
 def process(path):
-    dst = '/eee/tgnews/meta'
+    dst = '/eee/tgnews/meta/all'
     prefix = '/eee/tgnews/data'
     print("RUNNING", path)
     call(
