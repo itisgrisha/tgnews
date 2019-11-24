@@ -20,6 +20,7 @@ add_executable(tgnews
     src/tgnews.cpp
     src/utils.hpp
     src/html_parse.hpp
+    src/tokenize.hpp
     src/langrec.hpp
     src/debug.hpp
 )
@@ -28,6 +29,7 @@ target_include_directories(tgnews PUBLIC
     src/lexbor/source
     src/cld3/
     src/udpipe/src
+    src/udpipe/src_lib_only
 )
 
 target_link_libraries(tgnews

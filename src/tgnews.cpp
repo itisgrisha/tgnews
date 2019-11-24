@@ -5,6 +5,8 @@
 #include "html_parse.hpp"
 #include "debug.hpp"
 #include "langrec.hpp"
+#include "tokenize.hpp"
+#include "io.hpp"
 
 int main(int argc, char *argv[]) {
     std::string task(argv[1]);
@@ -15,9 +17,14 @@ int main(int argc, char *argv[]) {
     auto docs = LoadDocs(html_files);
 
     if (task == "languages") {
+        RecognizeLanguage(&docs);
+
     } else if (task == "dump") {
         RecognizeLanguage(&docs);
         MakeTsv(docs, argv[3]);
+    } else if (task == "tokenize") {
+        RecognizeLanguage(&docs);
+        TokenizeDocuments(&docs, "/eee/tgnews/misc/ru.udpipe");
     }
     
     return 0;

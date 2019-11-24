@@ -25,7 +25,7 @@ public:
         return lxb_dom_collection_length(collection_);
     }
 
-    lxb_dom_element_t* operator[](int i) const {
+    lxb_dom_element_t* operator[](size_t i) const {
         return lxb_dom_collection_element(collection_, i);
     }
 
@@ -46,8 +46,12 @@ public:
         ParseDocument();
     }
 
-    const std::string GetText() const {
+    std::string GetText() const {
         return text_;
+    }
+
+    const char* GetTextP() const {
+        return text_.c_str();
     }
 
     const std::vector<std::string> GetMetaKeys() const {
@@ -58,7 +62,7 @@ public:
         return keys;
     }
 
-    const std::string GetMeta(const std::string& key) const {
+    std::string GetMeta(const std::string& key) const {
         auto it = meta_.find(key);
         if (it == meta_.end()) {
             return {""};
@@ -127,7 +131,7 @@ private:
 
     void ParseMeta() {
         LXBCollection collection(lxb_dom_interface_document(document_), "meta");
-        for (int i = 0; i < collection.Size(); ++i) {
+        for (size_t i = 0; i < collection.Size(); ++i) {
             auto element = collection[i];
             auto property = GetRawAttribute(element, "property");
             if (property.size() > 0) {
@@ -139,7 +143,7 @@ private:
     void ParseText() {
         LXBCollection collection(lxb_dom_interface_document(document_), "p");
         text_ = "";
-        for (int i = 0; i < collection.Size(); ++i) {
+        for (size_t i = 0; i < collection.Size(); ++i) {
             auto element_ = collection[i];
             size_t text_size;
             auto p_lxb_text =
@@ -149,7 +153,6 @@ private:
     }
 
     void ParseLinks() {
-        size_t text_size;
         LXBCollection collection(lxb_dom_interface_document(document_), "related");
         if (collection.Size() > 0) {
             auto collection_a = lxb_dom_collection_make(lxb_dom_interface_document(document_), 20);
@@ -158,7 +161,7 @@ private:
                 collection_a,
                 reinterpret_cast<const lxb_char_t*>("a"),
                 1);
-            for (int i = 0; i < lxb_dom_collection_length(collection_a); ++i) {
+            for (size_t i = 0; i < lxb_dom_collection_length(collection_a); ++i) {
                 auto element = lxb_dom_collection_element(collection_a, i);
                 auto href = GetRawAttribute(element, "href");
                 if (href.size() > 0) {

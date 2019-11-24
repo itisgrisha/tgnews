@@ -58,12 +58,12 @@ void MakeTsv(const std::vector<HTMLDocument>& documents, const std::string& outp
     std::vector<std::string> keys_vec{keys.begin(), keys.end()};
     keys_vec.push_back("text");
     keys_vec.push_back("related_links");
-    for (int i = 0; i + 1 < keys_vec.size(); ++i) {
+    for (size_t i = 0; i + 1 < keys_vec.size(); ++i) {
         ostream << keys_vec[i] << "\t";
     }
     ostream << keys_vec.back() << "\n";
-    for (int i = 0; i + 1 < total; ++i) {
-        for (int j = 0; j + 1 < keys_vec.size(); ++j) {
+    for (size_t i = 0; i + 1 < total; ++i) {
+        for (size_t j = 0; j + 1 < keys_vec.size(); ++j) {
             //if (result[keys_vec[j]][i] == "/eee/tgnews/data/20191121/00/2653864115930851288.html") {
             //    std::cout << "kaka" << std::endl;
             //}
@@ -71,7 +71,7 @@ void MakeTsv(const std::vector<HTMLDocument>& documents, const std::string& outp
         }
         ostream << result[keys_vec.back()][i] << "\n";
     }
-    for (int j = 0; j + 1 < keys_vec.size(); ++j) {
+    for (size_t j = 0; j + 1 < keys_vec.size(); ++j) {
         ostream << result[keys_vec[j]].back() << "\t";
     }
     ostream << result[keys_vec.back()].back() << "\n";
