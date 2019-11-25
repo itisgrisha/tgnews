@@ -5,7 +5,7 @@
 #include "html_parse.hpp"
 #include "debug.hpp"
 #include "langrec.hpp"
-#include "tokenize.hpp"
+#include "features.hpp"
 #include "io.hpp"
 
 int main(int argc, char *argv[]) {
@@ -19,12 +19,14 @@ int main(int argc, char *argv[]) {
     if (task == "languages") {
         RecognizeLanguage(&docs);
         DumpLanguage(docs, input_folder);
+    } else if (task == "news") {
+    }
     } else if (task == "dump") {
         RecognizeLanguage(&docs);
         MakeTsv(docs, argv[3]);
-    } else if (task == "tokenize") {
+    } else if (task == "features") {
         RecognizeLanguage(&docs);
-        TokenizeDocuments(&docs, "/eee/tgnews/misc/ru.udpipe");
+        GenerateFeatures(docs);
     }
     
     return 0;

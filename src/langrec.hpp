@@ -21,3 +21,14 @@ void RecognizeLanguage(std::vector<HTMLDocument>* documents) {
     }
 }
 
+
+std::vector<HTMLDocument> GetRuEnDocs(std::vector<HTMLDocument>* docs) {
+    std::vector<HTMLDocument> ruen_docs;
+    for (auto& doc : *docs) {
+        auto lang = doc.GetMeta("lang");
+        if (lang == "ru" || lang == "en") {
+            ruen_docs.emplace_back(std::move(doc));
+        }
+    }
+    return ruen_docs;
+}
