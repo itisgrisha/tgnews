@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <thread>
 #include <fstream>
 #include <memory>
 #include <initializer_list>
@@ -23,7 +24,10 @@ public:
     }
 
     void Update(const std::string& word) {
-        ++bag_[dict_->at(word)];
+        auto it = dict_->find(word);
+        if (it != dict_->end()) {
+            ++bag_.at(it->second);
+        }
     }
 
     std::vector<double> const & Get() const {
@@ -35,8 +39,10 @@ public:
         for (const auto& v : bag_) {
             denumerator += v;
         }
-        for (auto& v : bag_) {
-            v /= denumerator;
+        if (denumerator > 0) {
+            for (auto& v : bag_) {
+                v /= denumerator;
+            }
         }
     }
 
@@ -63,6 +69,7 @@ struct DocFeatures {
     }
 
     std::unordered_map<std::string, BOW> bows_;
+    std::string doc_name_;
 };
 
 
@@ -99,15 +106,16 @@ private:
     void UpdateFeats(DocFeatures* features, std::string_view feats, const std::string& feats_name) {
         auto begin = feats.begin();
         auto end = feats.begin();
+        auto& feats_bow = features->bows_.at(feats_name);
         while (end != feats.end()) {
             if (*end == '|') {
-                features->bows_.at(feats_name).Update({&*begin, end-begin});
+                feats_bow.Update({&*begin, end-begin});
                 begin = end + 1;
             }
             ++end;
         }
         if (begin != end) {
-            features->bows_.at(feats_name).Update({&*begin, end-begin});
+            feats_bow.Update({&*begin, end-begin});
         }
     }
 
@@ -119,11 +127,12 @@ private:
         size_t total_tokens = 0;
         reader->reset_document("");
         reader->set_text(text_view.data());
+        auto& upostags_bow = features->bows_.at(features_names[0]);
         while (reader->next_sentence(sentence_, error_message_)) {
             model->tag(sentence_, udpipe::pipeline::DEFAULT, error_message_);
-            model->parse(sentence_, udpipe::pipeline::DEFAULT, error_message_);
+            //model->parse(sentence_, udpipe::pipeline::DEFAULT, error_message_);
             for (auto word = sentence_.words.begin()+1; word != sentence_.words.end(); ++word) {
-                features->bows_.at(features_names[0]).Update(word->upostag);
+                upostags_bow.Update(word->upostag);
                 UpdateFeats(features, word->feats, features_names[1]);
             }
         }
@@ -141,17 +150,48 @@ private:
 };
 
 
-
-void GenerateFeatures(const std::vector<HTMLDocument>& docs) {
+void GenerateFeaturesTask(std::vector<DocFeatures>* features, const std::vector<HTMLDocument>& docs, size_t start, size_t end) {
     FeaturesGenerator features_generator;
-    for (const auto& doc : docs) {
-        if (doc.GetMeta("lang") != "ru" and doc.GetMeta("lang") != "en") {
-            continue;
-        }
-        auto features = features_generator.GenerateFeatures(doc); 
-        for (const auto& f : features.Concat({"title:upostags", "text:upostags", "title:feats", "text:feats"})) {
-            std::cout << f << " ";
-        }
-        std::cout << "\n";
+   for (size_t i = start; i < end; ++i) {
+       auto& doc = docs.at(i);
+       if (doc.GetMeta("lang") == "ru" or doc.GetMeta("lang") == "en") {
+           features->at(i) = features_generator.GenerateFeatures(docs.at(i));
+       }
+       features->at(i).doc_name_ = doc.GetMeta("path");
+   }
+}
+
+
+std::vector<DocFeatures> GenerateFeatures(const std::vector<HTMLDocument>& documents) {
+    std::vector<DocFeatures> features(documents.size());
+
+    size_t step = documents.size() / 4;
+    size_t begin = 0;
+    size_t end = step;
+    std::vector<std::thread> workers;
+    for (; begin + step < documents.size(); begin+=step) {
+        end = std::min(documents.size(), begin+step);
+        workers.emplace_back(GenerateFeaturesTask, &features, std::cref(documents), begin, end);
     }
+    end = std::min(documents.size(), begin+step);
+    if (begin < end) {
+        workers.emplace_back(GenerateFeaturesTask, &features, std::cref(documents), begin, end);
+    }
+
+    for (auto& worker : workers) {
+        worker.join();
+    }
+    return features;
+
+    //FeaturesGenerator features_generator;
+    //for (const auto& doc : docs) {
+    //    if (doc.GetMeta("lang") != "ru" and doc.GetMeta("lang") != "en") {
+    //        continue;
+    //    }
+    //    auto features = features_generator.GenerateFeatures(doc); 
+    //    //for (const auto& f : features.Concat({"title:upostags", "text:upostags", "title:feats", "text:feats"})) {
+    //    //    std::cout << f << " ";
+    //    //}
+    //    //std::cout << "\n";
+    //}
 }
