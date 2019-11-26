@@ -38,6 +38,18 @@ void DumpLanguage(const std::vector<HTMLDocument>& docs, const std::string& path
     std::cout << std::setw(2) << result << std::endl;
 }
 
+void DumpNewsDet(const std::vector<DocFeatures>& docs, const std::string& path_prefix) {
+    json result = {{"articles", json::array()}};
+    size_t prefix_len = path_prefix.size() + (path_prefix.back() != '/');
+    for (const auto& doc : docs) {
+        // DIRTY
+        if (doc.is_news_ && doc.lang_ == "ru") {
+            result["articles"].emplace_back(doc.doc_name_.substr(prefix_len));
+        }
+    }
+    std::cout << std::setw(2) << result << std::endl;
+}
+
 std::shared_ptr<BOWDict> ReadFeaturesNames(const std::string& path) {
     auto features_names = std::make_shared<BOWDict>();
     std::ifstream input(path);

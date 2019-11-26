@@ -9,6 +9,7 @@
 #include "langrec.hpp"
 #include "features.hpp"
 #include "io.hpp"
+#include "news_det.hpp"
 
 
 int main(int argc, char *argv[]) {
@@ -17,23 +18,25 @@ int main(int argc, char *argv[]) {
 
     auto html_files = GlobHTML(input_folder);
 
-    auto start = std::chrono::high_resolution_clock::now();
     auto docs = LoadDocs(html_files);
-    std::cout << "LOAD DOCS: " << std::chrono::duration<double, std::milli>(std::chrono::high_resolution_clock::now()-start).count() << std::endl;
-    start = std::chrono::high_resolution_clock::now();
 
     if (task == "languages") {
         RecognizeLanguage(&docs);
         DumpLanguage(docs, input_folder);
     } else if (task == "news") {
+        RecognizeLanguage(&docs);
+        auto features = GenerateFeatures(docs, 3);
+        DetectNews(&features);
+        DumpNewsDet(features, input_folder);
     } else if (task == "dump") {
         RecognizeLanguage(&docs);
         MakeTsv(docs, argv[3]);
     } else if (task == "features") {
+        auto start = std::chrono::high_resolution_clock::now();
         RecognizeLanguage(&docs);
         std::cout << "REC LANG: " << std::chrono::duration<double, std::milli>(std::chrono::high_resolution_clock::now()-start).count()<< std::endl;
         start = std::chrono::high_resolution_clock::now();
-        GenerateFeatures(docs);
+        GenerateFeatures(docs, 3);
         std::cout << "FEATURES GEN: " << std::chrono::duration<double, std::milli>(std::chrono::high_resolution_clock::now()-start).count() << std::endl;
         start = std::chrono::high_resolution_clock::now();
     }

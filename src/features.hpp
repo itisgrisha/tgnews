@@ -15,62 +15,10 @@
 #include "io.hpp"
 #include "common.h"
 
+namespace udpipe = ufal::udpipe;
 
-class BOW {
-public:
-    BOW(std::shared_ptr<BOWDict> dict)
-        : bag_(std::vector<double>(dict->size(), 0)),
-          dict_(dict) {
-    }
-
-    void Update(const std::string& word) {
-        auto it = dict_->find(word);
-        if (it != dict_->end()) {
-            ++bag_.at(it->second);
-        }
-    }
-
-    std::vector<double> const & Get() const {
-        return bag_;
-    }
-
-    void Normalize() {
-        double denumerator = 0;
-        for (const auto& v : bag_) {
-            denumerator += v;
-        }
-        if (denumerator > 0) {
-            for (auto& v : bag_) {
-                v /= denumerator;
-            }
-        }
-    }
-
-    void Clear() {
-        std::fill(bag_.begin(), bag_.end(), 0);
-    }
-
-private:
-    std::shared_ptr<BOWDict> dict_;
-    std::vector<double> bag_;
-};
-
-
-struct DocFeatures {
-    std::vector<double> Concat(const std::vector<std::string>& features_names) {
-        std::vector<double> result;
-        for (const auto& name : features_names) {
-            bows_.at(name).Normalize();
-            for (const auto& v : bows_.at(name).Get()) {
-                result.emplace_back(v);
-            }
-        }
-        return result;
-    }
-
-    std::unordered_map<std::string, BOW> bows_;
-    std::string doc_name_;
-};
+using pModel = std::unique_ptr<udpipe::model>;
+using pReader = std::unique_ptr<udpipe::input_format>;
 
 
 class FeaturesGenerator {
@@ -85,7 +33,7 @@ public:
         feats_dict_ = ReadFeaturesNames("meta/Feats.txt");
     }
 
-    DocFeatures GenerateFeatures(const HTMLDocument& doc) {
+    DocFeatures GenerateFeatures(const HTMLDocument& doc, size_t sentences_count) {
         auto features = DocFeatures();
         features.bows_.emplace("title:upostags", upostags_dict_);
         features.bows_.emplace("title:feats", feats_dict_);
@@ -96,8 +44,8 @@ public:
         auto& reader = readers_.at(lang);
         auto& model = models_.at(lang);
 
-        UpdateUDPipe(&features, model, reader, doc.GetText(), {"text:upostags", "text:feats"});
-        UpdateUDPipe(&features, model, reader, doc.GetMeta("og:title"), {"title:upostags", "title:feats"});
+        UpdateUDPipe(&features, model, reader, doc.GetText(), {"text:upostags", "text:feats"}, sentences_count);
+        UpdateUDPipe(&features, model, reader, doc.GetMeta("og:title"), {"title:upostags", "title:feats"}, 100);
 
         return features;
     }
@@ -123,12 +71,14 @@ private:
                       const pModel& model,
                       pReader& reader,
                       std::string_view text_view,
-                      std::vector<std::string> features_names) {
-        size_t total_tokens = 0;
+                      std::vector<std::string> features_names,
+                      size_t sentences_count) {
         reader->reset_document("");
         reader->set_text(text_view.data());
         auto& upostags_bow = features->bows_.at(features_names[0]);
-        while (reader->next_sentence(sentence_, error_message_)) {
+        for (size_t total_sentences = 0;
+             (total_sentences < sentences_count) && reader->next_sentence(sentence_, error_message_);
+             ++total_sentences) {
             model->tag(sentence_, udpipe::pipeline::DEFAULT, error_message_);
             //model->parse(sentence_, udpipe::pipeline::DEFAULT, error_message_);
             for (auto word = sentence_.words.begin()+1; word != sentence_.words.end(); ++word) {
@@ -150,19 +100,27 @@ private:
 };
 
 
-void GenerateFeaturesTask(std::vector<DocFeatures>* features, const std::vector<HTMLDocument>& docs, size_t start, size_t end) {
+void GenerateFeaturesTask(std::vector<DocFeatures>* features,
+                          const std::vector<HTMLDocument>& docs,
+                          size_t total_sentences,
+                          size_t start,
+                          size_t end) {
     FeaturesGenerator features_generator;
     for (size_t i = start; i < end; ++i) {
         auto& doc = docs.at(i);
-        if (doc.GetMeta("lang") == "ru" or doc.GetMeta("lang") == "en") {
-            features->at(i) = features_generator.GenerateFeatures(docs.at(i));
+        auto& feature = features->at(i);
+        auto lang = doc.GetMeta("lang");
+        if (lang == "ru" or lang == "en") {
+            feature = features_generator.GenerateFeatures(docs.at(i), total_sentences);
         }
-        features->at(i).doc_name_ = doc.GetMeta("path");
+        feature.doc_name_ = doc.GetMeta("path");
+        feature.lang_ = lang;
     }
 }
 
 
-std::vector<DocFeatures> GenerateFeatures(const std::vector<HTMLDocument>& documents) {
+std::vector<DocFeatures> GenerateFeatures(const std::vector<HTMLDocument>& documents,
+                                          size_t total_sentences) {
     std::vector<DocFeatures> features(documents.size());
 
     size_t step = documents.size() / kNumThreads;
@@ -171,11 +129,11 @@ std::vector<DocFeatures> GenerateFeatures(const std::vector<HTMLDocument>& docum
     std::vector<std::thread> workers;
     for (; begin + step < documents.size(); begin+=step) {
         end = std::min(documents.size(), begin+step);
-        workers.emplace_back(GenerateFeaturesTask, &features, std::cref(documents), begin, end);
+        workers.emplace_back(GenerateFeaturesTask, &features, std::cref(documents), total_sentences, begin, end);
     }
     end = std::min(documents.size(), begin+step);
     if (begin < end) {
-        workers.emplace_back(GenerateFeaturesTask, &features, std::cref(documents), begin, end);
+        workers.emplace_back(GenerateFeaturesTask, &features, std::cref(documents), total_sentences, begin, end);
     }
 
     for (auto& worker : workers) {

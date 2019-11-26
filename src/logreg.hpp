@@ -11,25 +11,25 @@ public:
     LogisticRegression(const std::string& weights_path) {
         std::ifstream input(weights_path);
         input >> features_count_;
-        weights_.resize(features_count);
-        mean_.resize(features_count);
-        std_.resize(features_count);
+        weights_.resize(features_count_);
+        mean_.resize(features_count_);
+        std_.resize(features_count_);
         input >> bias_;
-        double std_;
-        for (size_t pos = 0; input >> weights_[pos] >> mean_[pos] >> std_; ++pos) {
+        for (size_t pos = 0; input >> weights_[pos] >> mean_[pos] >> std_[pos]; ++pos) {
             if (std_[pos] > 0) {
                 weights_[pos] = weights_[pos] / std_[pos];
             }
         }
     }
 
-    double Infer(const std::vector<double>& features) {
+    double Infer(std::vector<double> features) const {
         double result = 0;
         for (size_t i = 0; i < features_count_; ++i) {
-            result += (features[i] - mean_[i]) * weights_[pos];
+            result += (features[i] - mean_[i]) * weights_[i];
         }
-        return std::exp(-(result + bias_));
+        return 1. / (1. - std::exp(-(result + bias_)));
     }
+
 
 private:
     std::vector<double> weights_;
@@ -37,4 +37,6 @@ private:
     size_t features_count_;
     std::vector<double> mean_;
     std::vector<double> std_;
-}
+};
+
+

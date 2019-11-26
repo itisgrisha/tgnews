@@ -21,6 +21,8 @@ add_executable(tgnews
     src/utils.hpp
     src/html_parse.hpp
     src/features.hpp
+    src/logreg.hpp
+    src/news_det.hpp
     src/langrec.hpp
     src/debug.hpp
     src/io.hpp
