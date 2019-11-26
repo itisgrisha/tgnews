@@ -27,12 +27,3 @@ std::vector<std::string> GlobHTML(const std::string& input_folder) {
 }
 
 
-std::unordered_map<std::string, size_t> ReadFeaturesNames(const std::string& path) {
-    std::unordered_map<std::string, size_t> features_names;
-    std::ifstream input(path);
-    std::string feature;
-    for (size_t feature_pos = 0; input >> feature; ++feature_pos) {
-        features_names[feature] = feature_pos;
-    }
-    return features_names;
-}

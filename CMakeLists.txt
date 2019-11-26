@@ -20,7 +20,7 @@ add_executable(tgnews
     src/tgnews.cpp
     src/utils.hpp
     src/html_parse.hpp
-    src/tokenize.hpp
+    src/features.hpp
     src/langrec.hpp
     src/debug.hpp
     src/io.hpp

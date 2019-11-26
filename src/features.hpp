@@ -5,28 +5,22 @@
 #include <string>
 #include <algorithm>
 #include <fstream>
-#include <sstream>
 #include <memory>
 #include <initializer_list>
+#include <unordered_map>
 
+#include "typenames.hpp"
 #include "udpipe.h"
 #include "html_parse.hpp"
-#include "utils.hpp"
-
-namespace udpipe = ufal::udpipe;
-
-typename pModel = std::unique_ptr<udpipe::model>;
-typename pReader = std::unique_ptr<udpipe::input_format>;
-typename pBOWDict = std::shared_ptr<std::string, size_t>;
+#include "io.hpp"
 
 
 class BOW {
 public:
-    BOW() = delete;
-
-    BOW(pBOWDict dict)
-        : bag_({dict.size(), 0}),
-          dict_(dict);
+    BOW(std::shared_ptr<BOWDict> dict)
+        : bag_(std::vector<double>(dict->size(), 0)),
+          dict_(dict) {
+    }
 
     void Update(const std::string& word) {
         ++bag_[dict_->at(word)];
@@ -51,9 +45,9 @@ public:
     }
 
 private:
-    pBOWDict dict_;
+    std::shared_ptr<BOWDict> dict_;
     std::vector<double> bag_;
-}
+};
 
 
 struct DocFeatures {
@@ -61,7 +55,7 @@ struct DocFeatures {
         std::vector<double> result;
         for (const auto& name : features_names) {
             bows_.at(name).Normalize();
-            for (const auto& v : bows_.at(name)) {
+            for (const auto& v : bows_.at(name).Get()) {
                 result.emplace_back(v);
             }
         }
@@ -76,18 +70,19 @@ class FeaturesGenerator {
 public:
     FeaturesGenerator() {
         for (const auto& lang : kLangs) {
-            models_[lang].reset(udpipe::model::load(std::string("models/").append(lang).append(".udpipe")));
-            readers_[lang].reset(models[lang]->new_tokenizer("tokenizer"));
+            auto model_path = std::string("models/").append(lang).append(".udpipe");
+            models_[lang].reset(udpipe::model::load(model_path.c_str()));
+            readers_[lang].reset(models_[lang]->new_tokenizer("tokenizer"));
         }
-        upostag_dict_ = std::make_shared(ReadFeaturesNames("meta/Upostags.txt"));
-        feat_dict_ = std::make_shared(ReadFeaturesNames("meta/Feats.txt"));
+        upostags_dict_ = ReadFeaturesNames("meta/Upostags.txt");
+        feats_dict_ = ReadFeaturesNames("meta/Feats.txt");
     }
 
     DocFeatures GenerateFeatures(const HTMLDocument& doc) {
         auto features = DocFeatures();
-        features.bows_.emplace("title:upostags", upostag_dict_);
+        features.bows_.emplace("title:upostags", upostags_dict_);
         features.bows_.emplace("title:feats", feats_dict_);
-        features.bows_.emplace("text:upostags", upostag_dict_);
+        features.bows_.emplace("text:upostags", upostags_dict_);
         features.bows_.emplace("text:feats", feats_dict_);
 
         auto lang = doc.GetMeta("lang");
@@ -97,7 +92,6 @@ public:
         UpdateUDPipe(&features, model, reader, doc.GetText(), {"text:upostags", "text:feats"});
         UpdateUDPipe(&features, model, reader, doc.GetMeta("og:title"), {"title:upostags", "title:feats"});
 
-        features.Normalize();
         return features;
     }
 
@@ -107,13 +101,13 @@ private:
         auto end = feats.begin();
         while (end != feats.end()) {
             if (*end == '|') {
-                features->bows_[feats_name].Update(feats[feats_map_.at({&*begin, end-begin})]);
+                features->bows_.at(feats_name).Update({&*begin, end-begin});
                 begin = end + 1;
             }
             ++end;
         }
         if (begin != end) {
-            features->bows_[feats_name].Update(feats[feats_map_.at({&*begin, end-begin})]);
+            features->bows_.at(feats_name).Update({&*begin, end-begin});
         }
     }
 
@@ -128,7 +122,7 @@ private:
         while (reader->next_sentence(sentence_, error_message_)) {
             model->tag(sentence_, udpipe::pipeline::DEFAULT, error_message_);
             model->parse(sentence_, udpipe::pipeline::DEFAULT, error_message_);
-            for (auto word = sentence_.words.begin()+1, word != sentence_.words.end(); ++word) {
+            for (auto word = sentence_.words.begin()+1; word != sentence_.words.end(); ++word) {
                 features->bows_.at(features_names[0]).Update(word->upostag);
                 UpdateFeats(features, word->feats, features_names[1]);
             }
@@ -140,10 +134,10 @@ private:
     udpipe::sentence sentence_;
     std::string error_message_;
 
-    pBOWDict upostag_dict_;
-    pBOWDict feat_dict_;
+    std::shared_ptr<BOWDict> upostags_dict_;
+    std::shared_ptr<BOWDict> feats_dict_;
 
-    static constexpr std::vector<std::string> kLangs = {"ru", "en"};
+    static constexpr std::initializer_list kLangs = {"ru", "en"};
 };
 
 
@@ -155,5 +149,9 @@ void GenerateFeatures(const std::vector<HTMLDocument>& docs) {
             continue;
         }
         auto features = features_generator.GenerateFeatures(doc); 
+        for (const auto& f : features.Concat({"title:upostags", "text:upostags", "title:feats", "text:feats"})) {
+            std::cout << f << " ";
+        }
+        std::cout << "\n";
     }
 }

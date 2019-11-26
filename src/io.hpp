@@ -4,8 +4,11 @@
 #include <vector>
 #include <string>
 #include <unordered_map>
+#include <memory>
 
 #include <nlohmann/json.hpp>
+
+#include "typenames.hpp"
 
 using json = nlohmann::json;
 
@@ -32,4 +35,14 @@ void DumpLanguage(const std::vector<HTMLDocument>& docs, const std::string& path
     }
     json result = {std::move(lang2json["ru"]), std::move(lang2json["en"])};
     std::cout << std::setw(2) << result << std::endl;
+}
+
+std::shared_ptr<BOWDict> ReadFeaturesNames(const std::string& path) {
+    auto features_names = std::make_shared<BOWDict>();
+    std::ifstream input(path);
+    std::string feature;
+    for (size_t feature_pos = 0; input >> feature; ++feature_pos) {
+        features_names->emplace(feature, feature_pos);
+    }
+    return features_names;
 }

@@ -20,7 +20,6 @@ int main(int argc, char *argv[]) {
         RecognizeLanguage(&docs);
         DumpLanguage(docs, input_folder);
     } else if (task == "news") {
-    }
     } else if (task == "dump") {
         RecognizeLanguage(&docs);
         MakeTsv(docs, argv[3]);
