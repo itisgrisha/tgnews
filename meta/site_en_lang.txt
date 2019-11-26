@@ -1,0 +1,308 @@
+/Film
+12 NEWS WBNG
+680News
+9to5Google
+9to5Mac
+ABC Action News - WFTS - Tampa Bay
+ABC News
+ABC7 Los Angeles
+ABC7 New York
+AMN
+Africanews
+Aljazeera
+AllHipHop
+Android Central
+Android Community
+Android Headlines
+Android Police
+AppleInsider
+Arab News
+ArchDaily
+Ars Technica
+Asharq AL-awsat
+Atlas Obscura
+Autocar India
+Autosport
+BBC News
+BBC Sport
+BGR
+BNN
+BNN - Baltic News Network
+BTC Manager
+Bangalore Mirror
+Barriere Star Journal
+Bdnews24
+BeSoccer
+Bitcoinist.com
+BleepingComputer
+Bloody Disgusting
+Breaking News
+Breitbart
+BrightSide — Inspiration. Creativity. Wonder.
+BristolLive
+BrooklynVegan
+Business Insider
+Business Insider Australia
+Business Insider Malaysia
+Business-Standard
+BusinessLine
+Bustle
+CBR.com
+CBS News
+CHANNEL3000
+CINEMABLEND
+CNA
+Calgary Herald
+Capital News
+Capital Sports
+CarBuzz
+CaughtOffside
+Celebrity Insider
+Channel24
+ChronicleLive
+City A.M.
+City NEWS 1130
+Coconuts
+Cointelegraph
+Community News Group
+Connaught Telegraph
+Courthouse News Service
+DAILY SABAH
+DAWN.COM
+Deccan Chronicle
+Deccan Herald
+Destructoid
+DevonLive
+Dezeen
+Digital Journal
+Dundalk Democrat
+Dunya News
+EJ Insight
+ESPN
+ESPN.com
+ESPNcricinfo
+East Anglian Daily Times
+Egypt Today
+Eleven Media Group Co., Ltd
+Engadget
+Entertainment Daily
+EurekAlert!
+Eurogamer.net
+Express & Star
+FOX Sports Asia
+FXStreet
+Face2Face Africa
+Filmfare.com
+Financial Post
+Financial Times
+Forbes
+Fox 4
+Fox News
+Futurism
+GPblog.com
+GaadiWaadi.com
+GhBase.com
+Ghana Soccernet
+GhanaWeb
+Gizchina
+Gizmochina
+Gizmodo AU
+Gizmodo UK
+HUFFPOST
+HYPEBEAST
+Haaretz
+Hawaii News Now
+HeraldNet
+Hollywood Life
+HotHardware
+Inc.com
+India Today
+India.com
+Infowars
+Interesting Engineering
+Investing.com
+InvestorPlace
+Irish Mirror
+Irishexaminer
+Jamaica Observer
+Japan Today
+Jersey Evening Post
+Junkee
+KNOE 8 News
+KahawaTungu
+KitchenerToday.com
+Koimoi
+Kotaku Australia
+Kotaku UK
+Lancashire Post
+Las Vegas Review-Journal
+Lifehacker Australia
+Liverpool Echo
+MLB.com
+MSPoweruser
+MacroBusiness
+Malaymail
+Manila Bulletin Business
+MarketWatch
+Metro
+Moneycontrol
+Motor1.com
+MyBroadband
+NEWS wpxi.com
+NME
+NY Times
+NaijaNews.com
+Nairametrics.com
+Nature
+Nehanda Radio
+New Vision
+New York Post
+News24
+NewsBTC
+North Delta Reporter
+NottinghamshireLive
+OVERDRIVE
+Otago Daily Times Online News
+PCGamesN
+POLITICO
+PUNDIT ARENA
+Peacefmonline
+PerthNow
+PlymouthLive
+Premium Times Nigeria
+Psychology Today
+Punch Newspapers
+Radio Free Europe / Radio Liberty
+Rappler
+Rediff
+Republic World
+Reuters
+Rugbypass
+SCOOP
+SOHH
+SPORT
+SPOTBOYE
+Sahara Reporters
+Saudi Gazette
+ScienceAlert
+ScienceDaily
+Seeking Alpha
+Shropshire Star
+Soccer Laduma
+Sport
+Sporting Life
+Sporting News
+Sports Mole
+SportsMax
+Sputniknews
+St. Lucia News Online
+Star-Advertiser
+Stereogum
+Successful Farming
+SuperHeroHype
+THE SCOTSMAN
+Talking Points Memo
+Tech Advisor
+Tech Xplore
+TechRadar
+Techdirt
+The Age
+The Atlantic
+The Boot Room
+The Business Times
+The Cerbat Gem
+The Courier
+The Eagle Online
+The Economic Times
+The Economist
+The Express Tribune
+The Gleaner
+The Globe and Mail
+The Guardian
+The Hindu
+The Hollywood Reporter
+The Independent
+The Indian Express
+The Inquisitr
+The Irish News
+The Irish Times
+The Jakarta Post
+The Japan Times
+The Mac Observer
+The Motley Fool
+The Nation Newspaper
+The National Interest
+The New Daily
+The Next Web
+The Online Citizen
+The Phnom Penh Post
+The Scottish Sun
+The Seattle Times
+The Sentinel
+The Sport Review
+The Sports Daily
+The SportsRush
+The Spun
+The Standard
+The Stettler Independent
+The Telegraph
+The Times of India
+The Verge
+The Washington Times
+The Week
+The Zimbabwe Mail
+The42
+TheHill
+Thrive Global
+Time
+Times Colonist
+Times of Oman
+Total Pro Sports
+TravelDailyNews International
+Trusted Reviews
+UNIAN
+UNILAD
+VG247
+VentureBeat
+WBTV
+WFXT
+WION
+WORLD OF BUZZ
+WSVN 7News
+WVLT
+WWD
+Wales Online
+Washington Examiner
+Wccftech
+Windows Central
+XDA Developers
+Yahoo
+ZDNet
+allkpop
+autoevolution
+birminghammail
+dailyrecord
+football.london
+ghananewsagency.org
+iAfrica
+iHarare News
+iMore
+iNFOnews.ca
+manilastandard.net
+mid-day
+mirror
+mobilesyrup
+novinite.com
+sportskeeda
+tsa
+www.businessinsider.sg
+www.ctvnews.ca
+GeekTyrant
+KTVO
+CoinDesk
+Designtaxi
+MacRumors
+SportsCafe
+KOMO News
+BusinessMirror
+Coinspeaker

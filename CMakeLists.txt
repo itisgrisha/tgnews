@@ -24,6 +24,7 @@ add_executable(tgnews
     src/langrec.hpp
     src/debug.hpp
     src/io.hpp
+    src/common.h
 )
 
 target_include_directories(tgnews PUBLIC

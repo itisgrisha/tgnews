@@ -10,10 +10,10 @@
 #include <initializer_list>
 #include <unordered_map>
 
-#include "typenames.hpp"
 #include "udpipe.h"
 #include "html_parse.hpp"
 #include "io.hpp"
+#include "common.h"
 
 
 class BOW {
@@ -152,20 +152,20 @@ private:
 
 void GenerateFeaturesTask(std::vector<DocFeatures>* features, const std::vector<HTMLDocument>& docs, size_t start, size_t end) {
     FeaturesGenerator features_generator;
-   for (size_t i = start; i < end; ++i) {
-       auto& doc = docs.at(i);
-       if (doc.GetMeta("lang") == "ru" or doc.GetMeta("lang") == "en") {
-           features->at(i) = features_generator.GenerateFeatures(docs.at(i));
-       }
-       features->at(i).doc_name_ = doc.GetMeta("path");
-   }
+    for (size_t i = start; i < end; ++i) {
+        auto& doc = docs.at(i);
+        if (doc.GetMeta("lang") == "ru" or doc.GetMeta("lang") == "en") {
+            features->at(i) = features_generator.GenerateFeatures(docs.at(i));
+        }
+        features->at(i).doc_name_ = doc.GetMeta("path");
+    }
 }
 
 
 std::vector<DocFeatures> GenerateFeatures(const std::vector<HTMLDocument>& documents) {
     std::vector<DocFeatures> features(documents.size());
 
-    size_t step = documents.size() / 4;
+    size_t step = documents.size() / kNumThreads;
     size_t begin = 0;
     size_t end = step;
     std::vector<std::thread> workers;
@@ -182,16 +182,4 @@ std::vector<DocFeatures> GenerateFeatures(const std::vector<HTMLDocument>& docum
         worker.join();
     }
     return features;
-
-    //FeaturesGenerator features_generator;
-    //for (const auto& doc : docs) {
-    //    if (doc.GetMeta("lang") != "ru" and doc.GetMeta("lang") != "en") {
-    //        continue;
-    //    }
-    //    auto features = features_generator.GenerateFeatures(doc); 
-    //    //for (const auto& f : features.Concat({"title:upostags", "text:upostags", "title:feats", "text:feats"})) {
-    //    //    std::cout << f << " ";
-    //    //}
-    //    //std::cout << "\n";
-    //}
 }
