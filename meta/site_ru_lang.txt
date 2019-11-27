@@ -1,5 +1,5 @@
 "Земля Трубчевская"
-061.ua - Сайт города Запорожья
+110KM
 1nsk
 34 телеканал
 35медиа
@@ -8,9 +8,9 @@
 3DNews - Daily Digital Digest
 4PDA - Новости мира мобильных устройств
 66.ru
+7x7-journal.ru
 7Дней.ру
 @ASTERA: Новости IT и финансов
-AIN.UA
 AKKet
 ALLSPORT-NEWS
 AdIndex.ru
@@ -25,6 +25,7 @@ CAR.RU
 CXID.info
 Computerworld Россия
 DTF
+Delo.ua
 DonDay
 DonPress
 Drom.ru
@@ -52,13 +53,14 @@ Interfax.ru
 IrkutskMedia.ru
 It’s My City
 Joinfo Новости
-LB.ua
+KP.RU - сайт «Комсомольской правды»
 LetKnow News
 LifeTambov.ru
 MOS NEWS
 MagadanMedia
 MediaLeaks
 Meduza
+Mignews.com.ua
 MySlo
 NEVASPORT.RU
 NEWSONE
@@ -66,9 +68,12 @@ NEWSru.com
 News.Ykt.Ru
 Newsroom24
 Newstracker
+Odessa1.com
 OnlineTambov
 Onliner
 Overclockers.ru
+Overclockers.ua
+PITER TV
 PRIMPRESS
 PRO ГОРОД
 Planet Today
@@ -76,11 +81,13 @@ Plitkar
 Plugged In
 Popmech.ru
 Privet-Rostov.ru - Главные новости Ростова и Ростовской области
+REGIONS.RU — новости Федерации
 RIA56
 RT на русском
 Redyarsk.Ru
 RuNews24
 RusNext
+SAKHALIN.INFO
 SARATOVNEWS.ru
 STATUS QUO
 SakhalinMedia
@@ -93,10 +100,10 @@ Sputnik Грузия
 StarHit.ru
 Susanin
 TJ
-Tengrinews.kz
 The Bell
 The Insider
 The Village
+The-Flow.ru
 UA.NEWS
 UAprom.info
 UGRA-NEWS.RU
@@ -119,14 +126,15 @@ dndz.tv
 fapl.ru
 golos.ua
 i24.com.ua
+iLenta
 iPhones.ru
 inkazan.ru
 kiev.vgorode.ua
 lenta.ru
-lj-top.ru
 metro
 mos.ru
 moscow-baku.ru
+nag.ru
 news.sportbox.ru
 oilcapital.ru
 penzanews.ru
@@ -138,13 +146,16 @@ svpressa.ru
 topspb.tv
 tv.ua
 tvoygorodpskov.ru
+ubr.ua
 unionnews.ru
 vRINGe
 vc.ru
 vesti.ru
+vz.ru
 www.chitaitext.ru
 www.colta.ru
 www.cosmo.ru
+www.cybersport.ru
 www.dp.ru
 www.dvnovosti.ru
 www.f1news.ru
@@ -172,6 +183,7 @@ ysia.ru
 Актуальные новости
 Альтаир
 Амурская Служба Новостей: новости с характером
+Анонсенс
 Апостроф
 БИЗНЕС Online
 БК55
@@ -179,8 +191,11 @@ ysia.ru
 Байкал-Daily
 Большая Азия
 Бомбардир
+Боровичские Ведомости
 Брянск Today
+ВЕСТИРАМА.РУ
 ВЕСТЬ NEWS
+ВРЕМЯ
 ВашГород.ру
 Версия
 Верстов.Инфо
@@ -190,26 +205,31 @@ ysia.ru
 Вечерний Санкт-Петербург
 Вечерний курьер
 Взгляд
+Взгляд из Одессы
 ВладТайм
 Власть
 Вокруг ТВ
 Волгоградская Правда
 Волжская коммуна
 Восток Медиа
+ГАРАНТ.РУ
 ГТРК «Мордовия»
 ГТРК «Ставрополье»
 ГУБЕРНИЯ
+Газета "Навигатор Академгородок Новосибирск"
 Газета.uz
 Главный региональный
 Глас Народа
+Говорит Уфа
 Город55
 Городские вести
-Гродненская правда
 Грозный Информ
 Губерния
+Двина Сегодня
 Деловая Газета.ЮГ
 Деловая столица
 Дни ру
+Донбасс Times
 ДорИнфо
 Другой город
 ЕВРО-ФУТБОЛ
@@ -231,8 +251,9 @@ ysia.ru
 КАПИТАЛЪ
 КУРЬЕР.СРЕДА.Бердск
 Кавказский Узел
-Кам 24
+Казахстанская правда
 Капитал
+Кинешемец.RU - kineshemec.ru
 Клерк
 Клопс
 Код Дурова
@@ -284,9 +305,12 @@ ysia.ru
 Новый День
 НоябрьскИнформ
 Нью Информ
+ОРЕЛГРАД.ru
 Областная газета
 Область 45
 Обозреватель.Врн
+Общество
+Одесский паблик
 Олигарх
 Омск Здесь
 Онлайн Вологда
@@ -294,12 +318,14 @@ ysia.ru
 ПРАВО.Ru
 ПРАЙМ
 Панорама
+Папарацци
 Парламентская Газета
 Петербургский дневник
 Петрозаводск ГОВОРИТ
 Повестка дня
 ПолитРоссия
 ПолитЭксперт
+Политика
 Политсовет
 Правда.Ру
 Приморье 24
@@ -309,12 +335,12 @@ ysia.ru
 РЕАЛ
 РЕВИЗОР.РУ
 РИА «Стрела»
-РИА Мелитополь
 РИА Новости
 РИА ОмскПресс
 РИА ТОП68
 РИАМО
 Рамблер/новости
+Расследования
 Реальное время
 Регион Online
 Репортер UA
@@ -324,14 +350,16 @@ ysia.ru
 Российская газета
 Российский Стадион
 Русаргумент
+Русская весна
 Русский Еврей
 Сiбдепо
 СВОЙ КИРОВСКИЙ.РФ
 СПОРТ.UA
-Саратов 24
+Свободные Медиа
 СеверПост
 Сиб.фм
 Слово и Дело
+Спорт
 Спорт День за Днем
 Ставропольская правда
 Строительная газета
@@ -345,15 +373,16 @@ ysia.ru
 Тверские ведомости
 Телеграф
 Телеканал 360°
+Телеканал NTD
 Телеканал «Звезда»
 Телеканал Дождь
+Телеканал Царьград
 Телерадиокомпания «Губерния-33»
 Тотал
+Трасса Е-95
 Тульская Служба Новостей
 Тульские новости
-Турпром
 Тюменская линия
-Украинская правда
 Українські Новини
 Улпресса
 Ульяновск сегодня
@@ -369,6 +398,9 @@ ysia.ru
 Хакасия
 Центр журналистских расследований
 ЧГТРК "Грозный"
+Чертаново Южное
+Шешминская новь
+Экономика
 Юга.ру
 Югополис
 Южноуральская панорама
@@ -376,3 +408,6 @@ ysia.ru
 Znak
 Канобу
 РЕН ТВ
+TUT.BY
+Интересные новости OAnews
+Политика Сегодня

@@ -1,39 +1,58 @@
++PLUS.gr
 032.ua - Сайт міста Львова
 0352.ua - Сайт міста Тернополя
+0404
 1NEWS
 1News.com.br
 20 Minuten
 218
 24 Канал
+24boxing.com.ua
 24sports.com.cy
+2M
 3DJuegos
+4-4-2.com
+4gnews
 61 SAAT
 852郵報
+A BOLA
+A Haber
 A Televisão
+ABC Bourse
 ABC.es
+ACI Digital
 ACidade ON
 ADSLZone
+AFRIK FOOT
 ANSA.it
 AUTOMATON
 Adnkronos
 Affari Italiani
 African Manager
 Aftenbladet
+Aftodioikisi.gr
 Agi
+AgoraVox
 AgroNews
 Ah Negão!
 Air Journal
 Aktuálně.cz - Víte, co se právě děje
 Akşam
+Alagoas 24 Horas
 Alaraby
 Allnews
+AmalfiNotizie.it
 An ninh Thủ đô
 Anadolu Ajansı
 Andhrajyothy
 Andro4all
 AndroidWorld
+Androidphoria
+Antena 2
 Anweshanam | Part of A.N.N News Private Limited
+Aporrea
 Apparata
+Aqui Notícias
 Ara.cat
 Arcinfo
 Aristegui Noticias
@@ -41,16 +60,24 @@ Askanews
 Aspor
 Atomix
 Aujourd'hui le Maroc
+Auto Bild
 AutoExpert
+AutoRevue.cz
 AvellinoToday
 Aydınlık.com.tr
+B1 TV
 BAE Negocios
+BAHIA NO AR
+BAMA
+BENIN WEB TV
 BLOGOS
+BUNTE.de
 Bamada.net
 Band News FM Curitiba
 Bergens Tidende
 Bihoreanul
 Bild
+BitchyF
 Blik op nieuws
 Blikk.hu
 Blitz quotidiano
@@ -60,12 +87,20 @@ Bohemia
 Bola.com
 Bola.net
 BolaSport.com
+Bongdanet
+Boursier.com
+Bravo.de
 Bursada Bugün
 BusinessMagazin
+Báo Công an Thành Phố Hồ Chí Minh
+Báo Hà Tĩnh
 Báo Thanh Niên
+Báo điện tử Dân Trí
+Börse Express
 CCMA
 CHAMPIONAT.asia
 CHIP Online
+CNBC Indonesia
 CNN Türk
 CNN.gr
 CORREIO DO ESTADO
@@ -84,20 +119,26 @@ CinePOP
 Closermag.fr
 Cnews.cz
 Colombia.com
+Computer Bild
 ComputerHoy
 Correio
 Correo del Caroní
 Corriere della Sera
+Cosmopolitan.hu
+Cotidianul
+Cowcotland
 Cronache Maceratesi
 Cross
 Crónica
 Cubadebate
+Cubanet
 Cultur Plaza
 CulturePSG
 Cumicumi.com
 CybeOut
 DAGOSPIA
 DAKARACTU.COM
+DCI
 DDay.it
 DELFI
 DESCOPERĂ
@@ -105,10 +146,14 @@ DN.SE
 DT.ua
 Dagbladet.no
 Dagens industri
+Daily Geek Show
 Daily Janakantha
 Dailythnathi.com
+Dainik Bhaskar
 Dainik Savera Times
+DansLesCoulisses.com
 Daryo
+De Dagelijkse Standaard
 De Standaard
 Denizli Haber
 Denník politika
@@ -116,27 +161,35 @@ Deník.cz
 Descifrado
 Deskmodder.de
 Deutschlandfunk
+DiLei
 Diari La Veu
 Diario La Prensa
 Diario Popular
 Diario Tecnología
 Diario de Cuyo
 Diario de Xalapa
+Diario de Yucatán
 Diariocrítico
 Diarioinformacion
 Dinside
 Ditjes & Datjes
 Dnes.bg
+Dnevnik
+Do Rzeczy
+Doble Amarilla
 Document
 Documento
 Dolenjski list
 DoolNews
+E-Consulta
 EL DEBATE
 EL FINANCIERO
 EL GRÁFICO
 ELESPECTADOR.COM
 ELONCE
+EURO FOOTBALL
 Ecuavisa
+Efsyn.gr
 El Ancasti
 El Androide Libre
 El Chapuzas Informático
@@ -146,27 +199,37 @@ El Eco
 El Esquiú
 El Heraldo
 El Impulso
+El Informador
 El Liberal
 El Litoral
 El Mañana
 El Patagónico
 El Peruano
+El Popular
 El Siglo
 El Sol
 El Sol de Toluca
 El Territorio Misiones
+El Universal
 EleftherosTypos.gr
 Elfann News
 Epoli.gr
+Escambray
 Extra Online
+F1-gate.com
+FEMINA
+FOOT01.com
 FOOTBALL CHANNEL
+FOX體育台
 FRONTROW
+Fanatik
 Fashion Press
 FcInterNews.it
 Fichajes
 Folha de S.Paulo
 Forzaroma.info
 FotoMaç
+Fotospor
 France Bleu
 FranceSoir
 Frankfurter Rundschau
@@ -175,6 +238,8 @@ Futebol Interior
 G4Media.ro
 GAMERGEN.COM
 GGN
+GMX News
+GNT
 GOODnet.gr
 Gameblog
 Gazeta Olsztyńska
@@ -182,39 +247,58 @@ Gazeta.ua
 Gerçek Gündem
 Gilabola.com
 Golem.de
+Gram.pl
+Granada Hoy
 Guia do Bitcoin
+Gândul
 HABER 61
+HBL
+HLAVNÝ DENNÍK
+HLN
 HM Online
+HVG.hu
 Haberler.com
 Handelsblatt
 Hespress
+Het Nieuwsblad
 HotNews
 IMLebanon
 INDOSPORT.com
+INNnews
 INVEN
+ISTOÉ Independente
 Il Corriere della Città
 Il Messaggero
 Il Post
 Il Tempo
 IlSussidiario
 Infocielo
+Infomédiaire
 Informe21.com
 Insider
+InterNapoli.it
 InvestireOggi
+Investor.bg
 Janam TV
 Jornal do Brasil
 Journal de Brazza
 Journal du Cameroun
 Jurnal.md
+Juventud Rebelde
+KBS 뉴스
 KPSSCAFE
 Kampanje
 KamuAjans
 Karar.com
+Katadata News
 Kataeb.org
 Kronen Zeitung
+Krstarica
 Kurier
 KurzyCZ
 Kölner Stadt-Anzeiger
+L'Alsace
+L'Est RÉPUBLICAIN
 L'Orient-Le Jour
 L'Unione Sarda.it
 L'essentiel
@@ -225,40 +309,62 @@ LOS40
 La Capital
 La Côte
 La Información
+La Libre
+La Libreville
 La Montagne
 La Nación
 La Nazione
 La Nouvelle Union et L'Avenir de l'Érable
+La Nuova Periferia
 La Opción de Chihuahua
 La Opinión
 La Prensa Gráfica
 La Razón
 La República
+La République du Centre
 La Tribuna
+La Verdad Noticias
+La Voz
 La Voz de Galicia
+LaBotana
+LaNostraTv
 LaPatilla.com
 LaProvence
 LaProvinciaDiBiella.it
 Las Provincias
+Le 10 Sport
 Le Devoir
+Le Guide de l'auto
 Le Journal de Montréal
 Le Journal du Dimanche
+Le Point
 Le Site Info
 Le Temps
+Leak
 Lebanon24
+Lega Nerd
 Leral.net
 LesEco.ma
 LiFO
+Lifestyle.bg
 Lmneuquen.com
 Lokmat
 Los Tiempos
+MARCA
+MC
+MDR
 MGR Online
+Made in vilnius
 Madina
 MaisPB
 Makkah
 ManoramaOnline
+Media One
 Merca2.0
+Metro Vaartha
+Metropolitana 98.5 FM
 Metrosport.gr
+MiMorelia
 Middle East Online
 Midi Libre
 MilanNews.it
@@ -268,11 +374,13 @@ Mitteldeutsche Zeitung
 MivzakLive
 Mix Vale
 MobileWorld
+Money.bg
 Mosaïque FM
 MozzartSport
 Multiplayer.it
 Mundo D
 Mundo Deportivo
+MÔI TRƯỜNG & ĐÔ THỊ
 NDARINFO.COM
 NDR.de
 NOOZ.
@@ -281,26 +389,40 @@ NTD 新唐人電視台
 NTN24
 Nación321
 Najwyższy Czas!
+NewNotizie
 News.bg
 News.gr
 News.ro
+News7 Tamil
+NewsPAO.gr
 Newsbomb
 Newsit.gr
 Next INpact
 Nieuws.nl
+Noticias de El Salvador - elsalvador.com
 Noticias de Israel
+Notizia Oggi Vercelli
 Notícias ao Minuto
+Notícias de Coimbra
+Novella 2000
 Novinska agencija Beta
 Novsport
+Nowa Trybuna Opolska
+Nyheter24
+NÖN.at
+Népszava
 O Antagonista
 O Jogo
+O Minho
 O Povo
 O TEMPO
 OKETEKNO.COM
 OLAY
+OOG
 ORICON NEWS
 Oberösterreichisches Volksblatt
 Observator
+OdaTV
 Oggi Treviso
 Olhar Digital
 OnSports
@@ -311,6 +433,8 @@ PRESS-ЦЕНТР
 PRONTO.com.ar
 PUBLIKA
 Pagina 7
+Panamericana Televisión
+Paraméter
 Paris Turf
 ParlamentniListy.cz
 PhonAndroid.com
@@ -318,6 +442,7 @@ PianetaGenoa1893
 Pikio
 Pikiran Rakyat
 Plovdiv24.bg
+Polsat News
 Polskie Radio
 Portafolio
 Portal Samorządowy
@@ -325,49 +450,70 @@ Posta
 Pplware
 Prensa Libre
 Primera Edición
+Primera Hora
 Primocanale.it
 Primorske novice
+ProFutbal
+Publimetro Chile
 Publinews
 Purepeople
 QUOTIDIANO.NET
 R10
+RD1 – Terra
 REFRESHER
 REPORTE Indigo
+RPP
 RRI News Portal
 RTL Boulevard
+RTL Info
+RTL sport
 RTL.DE
 RTL.fr
 RTN
 RTV Noord
+RTV Oost
 RTV Rijnmond
 Radio Corazón
 Radio Okapi
 Računalniške novice
+Real.gr
 Regeneración
+Reggionline - Quotidianionline - Telereggio - Trc - TRM
 Repubblica.it
 Revista VIP
+Rzeczpospolita
 RÉCORD
 SANSPO.COM（サンスポ）
 SCEPTR
 SEGUIMIENTO.CO
 SIGMALIVE
+SO FOOT.COM
 SPIEGEL ONLINE
 SPORT LIVE
 SPORTSKE NET
 STA.si
 SVT Nyheter
 SZOLJON
+Sakshi
+Salzburger Nachrichten
 SaoStar
 Senado Federal
 Senegal Direct
 Seneweb News
 Shangbao Indonesia
+Sky TG24
 Slovenske novice
+SomosXbox
+Spazio Napoli
 Sportbuzzer.de
 Sportnieuws
 Sportska centrala
+Sud Ouest
+SÁBADO
 T-Online
+T24
 TAG24
+TERAZ.sk
 TGT - THE GIOI TRE
 TNH1
 TUTTONAPOLI.net
@@ -375,25 +521,38 @@ TVA Nouvelles
 TVN24
 Tabloidbintang.com
 Tamil Gizbot
+Targatocn.it
+Te Caché
 TechNews 科技新報
+Teenproblem.net
 Telemedellín
+Telepolis
 Tempo
 Tempostretto
 Tenisový svět
+The Bangkok Insight
 The News Lens 關鍵評論
+TheCaller.Gr
 ThePostOnline
 Thüringen24
 Tiempo de San Juan
+TiempoSur
 Timpul.md
 Tin nhanh VnExpress
+Tin tức 24h
 TinTheThao
 Todo Noticias
 Tom's Hardware
 Topsport.bg
+Trend Online
+Tribuna do Norte
+TuttoUdinese.it
 Tuttosport
 TyC Sports
+Télé Star
 Türkiye Gazetesi
 UOL Noticias
+Unwire.hk
 UrbanPost
 VANITY FAIR
 VARTA1
@@ -401,41 +560,62 @@ VEJA.com
 VICTORIA
 VIP.de
 VITA
+VNReview
 VP VoetbalPrimeur.be
 Vakaru ekspresas VE
 Valencia Plaza
 Valeurs Actuelles
+Vanguardia
+Vasco Notícias
+Vesti
 ViaggiNews.com
 Vida Extra
 VietTimes
 Vietnam+
 Világgazdaság
+Vivreici.be
 VnEconomy
 VnExpress
 VoetbalPrimeur.nl
+Voetbalzone
 Voria.gr
 W Radio
+WP SportoweFakty
 Wall Street Italia
 Wall-Street
 Wapa.pe
+Warta Ekonomi.co.id
+Webnews
+Welingelichte Kringen
 Werbewoche
 Westdeutsche Allgemeine Zeitung
+Wiener Zeitung
 Wprost
 Xalima.com
 Xataka
 Xataka Móvil
+Yeni Çağ Gazetesi
 Yeni Şafak
+ZIUA de Constanta
 Ziarul Financiar
+Zita
+aajtak.intoday.in
 adevarul.ro
 adressa.no
+aica.org
 alairelibre.cl
 almanar.com.lb
 autobild.de
 bTV Новините
+baodatviet.vn
 basketnews.lt
+beartai
 beritajatim.com
+bluerating
 btvnovinite.bg
+bz BASEL
 cafebiz.vn
+canalN.pe
 caracoltv.com
 cash
 cnBeta
@@ -448,7 +628,9 @@ detikfood
 detikinet
 detiknews
 dnoticias
+eXtra.cz
 ecoticias.com
+eju.tv
 elEconomista.es
 elPeriodico
 elVocero.com
@@ -457,17 +639,26 @@ enikos.gr
 ert.gr
 europost.gr
 fanpage.it
+finance.sina.com.cn
 futurezone.de
+gamek.vn
 gavros.gr
+gaya hidup
 gazzetta.gr
 grid.id
+hanoimoi.com.vn
 heise online
 hiburan
 https://www.livehindustan.com
+hírTV
+iNSIDE
+iPhone Italia
 iROZHLAS
+il BiancoNero
 il Resto del Carlino
 inFranken.de
 infonet.vn
+infosalus.com
 infostart
 inkhabar
 irafina
@@ -477,30 +668,47 @@ leNouvelliste
 leSoleil
 lintern@ute
 lokál
+lublin112.pl
 madata.gr
+madmoiZelle
 maria
 medya faresi
 mobilenet.cz
+moms-life
 mujerhoy
+naiz:
 nasional
 neolaia.gr
 new.bab.com
+news.de
+news.sina.com.cn
+olahraga
+omroep flevoland
 paraibaonline.com.br
+parismatch.be
 play3.de
 pulzo.com
 quotidianosanità.it
 rbb24.de
+skaties.lv
+somoynews.tv
 sport
 sport.de
+stuttgarter-zeitung.de
 suara.com
 sudinfo.be
 tagesschau.de
 tecnoandroid
 teknologi
+thestival.gr
+tin tức
+to10.gr
+touchIT
 vietnambiz
 vnexpress.net
 wPolityce.pl
 webcafé
+wiwsport.com
 www.Bluewin.ch
 www.adnradio.cl
 www.alalamtv.net
@@ -515,10 +723,14 @@ www.sport24.gr
 www.ukrinform.ua
 Últimas Noticias
 ŞARKUL AVSAT
+Športky.sk
+Žmonės
+Ζούγkλ@
 Η ΡΟΔΙΑΚΗ
 ΝΕΑ ΣΕΛΙΔΑ
 Νέα Κρήτη
 ΠΕΝΤΑΠΌΣΤΑΓΜΑ
+ΣΥΝΕΙΔΗΣΗ
 ΤΑ ΝΕΑ
 Το Βήμα Online
 ΦΩΣ
@@ -529,8 +741,10 @@ www.ukrinform.ua
 ВолиньPost
 Всім
 Гал-інфо
+Глянець
 Економічна правда
 Закарпатський Кореспондент
+Закон и Бизнес
 Канал 3
 Кировоградская правда
 Народна Правда
@@ -547,13 +761,16 @@ www.ukrinform.ua
 Точка Доступу
 Українська правда
 Футбольні трансфери
+אשדוד נט
 וואלה! חדשות
 חדשות פתח תקוה
 כלכליסט - www.calcalist.co.il
 סרוגים
+רדיו קול חי
 آخر خبر آونلاين
 إلكتروني
 اخبار روز ایران و جهان | آفتاب نیوز
+الأخبار
 الإمارات اليوم
 الاتحاد
 البيان
@@ -562,8 +779,11 @@ www.ukrinform.ua
 الخليج أونلاين
 الدرر الشامية
 الراية
+الشرق
 الشرق الأوسط
+العرب
 العربية نت
+القدس العربي
 القوات اللبنانية
 المنتخب
 الوطـــن الإلكترونية
@@ -575,11 +795,13 @@ www.ukrinform.ua
 دبي الرياضية
 دنيا الوطن
 سرايا
+شاشة نيوز
 شبكة الميادين
 شبکه اطلاع رسانی راه دانا
 صحيفة الاقتصادية
 صحيفة البلاد
 صحيفة المواطن الإلكترونية
+صحيفة الوسط
 صحيفة صدى الالكترونية
 صدى البلد
 عربي اليوم
@@ -591,6 +813,7 @@ www.ukrinform.ua
 مصر العربية
 مـزمـز
 موقع خبرني
+مونت كارلو الدولية / MCD
 وكالة سوا الإخبارية
 وكالــة معــا الاخبارية
 پایگاه خبری صنعت برق - برق نیوز BarghNews
@@ -598,12 +821,15 @@ www.ukrinform.ua
 বাংলা ট্রিবিউন
 মানবজমিন
 பதிவு! தமிழரின் பூர்வீகம்
+ఆంధ్రప్రభా
 ദേശാഭിമാനി
 เดลินิวส์
 アキバ総研
+ケータイ Watch
 デイリースポーツ online
 ナタリー
 世界新聞網
+中國報 China Press
 中央社 CNA
 信報即時新聞
 希望之声
@@ -614,8 +840,119 @@ www.ukrinform.ua
 読売新聞オンライン
 鏡週刊 Mirror Media
 뉴스1
+디스패치 | 뉴스는 팩트다!
 서울신문
 La Nouvelle Tribune
 boursepress.ir
 vizhu_rifmu.d3.ru
+Hürriyet
 Báo Dân Việt
+24.ae
+Actualno.com
+Al Jazeera
+But! Football Club
+CidadeVerde.com
+DIE WELT
+DN
+Dream.co.id
+EL PAIS
+EL PAÍS
+Echo24.cz
+El Periódico Mediterráneo
+El Punt Avui
+El Universo
+Europa FM
+Europa Press
+Expansión
+FOCUS Online
+Folha Vitória
+Football ZONE WEB
+Football.fr
+Futbol Sapiens
+GOSSIP E TV
+Gazete Vatan
+HiNet生活誌
+Himachal Abhi Abhi
+Hola.com
+Index.hu
+JN
+Jauns.lv
+KontroKultura
+Kvatha.com
+LA VDN
+La Vanguardia
+La Voix du Nord
+Levante-EMV
+Listín Diario
+N1 Srbija
+Origo
+Ovación
+PAGINA12
+Przegląd Sportowy
+REPUBLIKA
+RMF24
+SPOX
+SRF
+Sanook
+Setn
+Sport Klub
+Sportal.bg
+Stirileprotv.ro
+Tabasco Hoy
+The Pressroom
+Top Mercato
+Tổquốc
+Voetbal24
+WSCOM
+YENİ ASYA
+economico.gr
+https://www.posttoday.com
+ntnews.com
+swp.de
+www.naciodigital.cat
+Новини БНТ
+ישראל היום
+المصريون
+خبرگزاری تسنیم - Tasnim
+عنب بلدي
+लोकसत्ता
+প্রথম আলো
+モデルプレス - modelpress
+每经网
+經濟通 etnet
+대한민국 IT포털의 중심! 이티뉴스
+24hod.sk
+Dnevni list Danas
+El Tiempo
+Emol
+Jansatta
+Kienthuc.net.vn
+Milenio
+Neue Zürcher Zeitung
+Nezavisne novine
+Okaz
+PHÁPLUẬT
+Sohu
+Stiri pe surse
+Tribunnews.com
+Ukr.Media
+Webtekno
+Zonebourse
+espreso.tv
+meinbezirk.at
+n-tv
+www.24chasa.bg
+www.dnevnik.bg
+www.elpais.com.co
+www.publico.es
+Волинські новини
+ערוץ 7
+اليوم السابع
+تابناک | TABNAK
+خبرگزاری دانشجو | SNN.IR
+خبرگزاری مهر | اخبار ایران و جهان | Mehr News Agency
+مشرق نیوز
+ویرگول
+কালের কণ্ঠ
+聯合新聞網
+스포츠서울

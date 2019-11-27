@@ -5,10 +5,12 @@
 9to5Mac
 ABC Action News - WFTS - Tampa Bay
 ABC News
+ABC15 Arizona
 ABC7 Los Angeles
 ABC7 New York
 AMN
 Africanews
+Algoa FM
 Aljazeera
 AllHipHop
 Android Central
@@ -23,9 +25,11 @@ Asharq AL-awsat
 Atlas Obscura
 Autocar India
 Autosport
+BALLS.ie
 BBC News
 BBC Sport
 BGR
+BMW BLOG
 BNN
 BNN - Baltic News Network
 BTC Manager
@@ -36,23 +40,28 @@ BeSoccer
 Bitcoinist.com
 BleepingComputer
 Bloody Disgusting
+Breaking Israel News
 Breaking News
 Breitbart
 BrightSide — Inspiration. Creativity. Wonder.
 BristolLive
 BrooklynVegan
-Business Insider
+Bulawayo24 News
 Business Insider Australia
 Business Insider Malaysia
+Business Today
 Business-Standard
 BusinessLine
+BusinessTech
 Bustle
+Buzz.ie
 CBR.com
 CBS News
+CCN.com
 CHANNEL3000
 CINEMABLEND
 CNA
-Calgary Herald
+CP24
 Capital News
 Capital Sports
 CarBuzz
@@ -62,23 +71,27 @@ Channel24
 ChronicleLive
 City A.M.
 City NEWS 1130
+CityPress
 Coconuts
 Cointelegraph
 Community News Group
+Concise
 Connaught Telegraph
+Cosmopolitan
 Courthouse News Service
+Critical Hit
+Crowdfund Insider
+CryptoPotato
 DAILY SABAH
 DAWN.COM
+Daily Times
 Deccan Chronicle
 Deccan Herald
 Destructoid
-DevonLive
 Dezeen
-Digital Journal
 Dundalk Democrat
 Dunya News
 EJ Insight
-ESPN
 ESPN.com
 ESPNcricinfo
 East Anglian Daily Times
@@ -88,19 +101,23 @@ Engadget
 Entertainment Daily
 EurekAlert!
 Eurogamer.net
+Everything Barca
 Express & Star
 FOX Sports Asia
 FXStreet
 Face2Face Africa
-Filmfare.com
 Financial Post
 Financial Times
 Forbes
 Fox 4
 Fox News
+Fox Sports
 Futurism
+GHANA PAGE
 GPblog.com
+GSMArena
 GaadiWaadi.com
+Geek.com
 GhBase.com
 Ghana Soccernet
 GhanaWeb
@@ -111,10 +128,15 @@ Gizmodo UK
 HUFFPOST
 HYPEBEAST
 Haaretz
+Hackaday
 Hawaii News Now
 HeraldNet
 Hollywood Life
+Horse Racing Nation
 HotHardware
+IPPMEDIA
+ITV News
+ITWeb
 Inc.com
 India Today
 India.com
@@ -123,42 +145,46 @@ Interesting Engineering
 Investing.com
 InvestorPlace
 Irish Mirror
+IrishCentral
 Irishexaminer
 Jamaica Observer
 Japan Today
 Jersey Evening Post
 Junkee
+Just Jared Jr.
 KNOE 8 News
 KahawaTungu
 KitchenerToday.com
 Koimoi
-Kotaku Australia
 Kotaku UK
+LailasNews.com
 Lancashire Post
 Las Vegas Review-Journal
 Lifehacker Australia
 Liverpool Echo
 MLB.com
+MMA FIGHTING
 MSPoweruser
 MacroBusiness
 Malaymail
 Manila Bulletin Business
 MarketWatch
 Metro
+Modern Diplomacy
 Moneycontrol
 Motor1.com
 MyBroadband
+NDTVSports.com
 NEWS wpxi.com
 NME
 NY Times
 NaijaNews.com
 Nairametrics.com
-Nature
+National Post
 Nehanda Radio
-New Vision
-New York Post
 News24
 NewsBTC
+NewsChannel 10
 North Delta Reporter
 NottinghamshireLive
 OVERDRIVE
@@ -166,28 +192,30 @@ Otago Daily Times Online News
 PCGamesN
 POLITICO
 PUNDIT ARENA
-Peacefmonline
+Pedestrian TV
 PerthNow
-PlymouthLive
 Premium Times Nigeria
 Psychology Today
+Pulse Live
 Punch Newspapers
 Radio Free Europe / Radio Liberty
 Rappler
 Rediff
 Republic World
-Reuters
 Rugbypass
 SCOOP
 SOHH
 SPORT
 SPOTBOYE
 Sahara Reporters
+Saskatoon StarPhoenix
 Saudi Gazette
 ScienceAlert
 ScienceDaily
 Seeking Alpha
+Shacknews
 Shropshire Star
+Sky Sports
 Soccer Laduma
 Sport
 Sporting Life
@@ -200,29 +228,36 @@ Star-Advertiser
 Stereogum
 Successful Farming
 SuperHeroHype
+Swarajya
+TEAM talk
+THE CITIZEN
 THE SCOTSMAN
+TOLO news
+Taiwan News
 Talking Points Memo
 Tech Advisor
 Tech Xplore
 TechRadar
 Techdirt
-The Age
+Techweez
 The Atlantic
 The Boot Room
 The Business Times
 The Cerbat Gem
+The Citizen
 The Courier
 The Eagle Online
+The East African
 The Economic Times
 The Economist
+The Empire of The Kop
 The Express Tribune
-The Gleaner
+The Gazette
 The Globe and Mail
 The Guardian
 The Hindu
 The Hollywood Reporter
 The Independent
-The Indian Express
 The Inquisitr
 The Irish News
 The Irish Times
@@ -235,7 +270,9 @@ The National Interest
 The New Daily
 The Next Web
 The Online Citizen
+The Peninsula
 The Phnom Penh Post
+The Portugal News Online
 The Scottish Sun
 The Seattle Times
 The Sentinel
@@ -247,18 +284,19 @@ The Standard
 The Stettler Independent
 The Telegraph
 The Times of India
-The Verge
 The Washington Times
 The Week
 The Zimbabwe Mail
 The42
 TheHill
-Thrive Global
+TheJournal.ie
+This Is Anfield
 Time
 Times Colonist
-Times of Oman
+TipperaryLive
 Total Pro Sports
 TravelDailyNews International
+Traveller
 Trusted Reviews
 UNIAN
 UNILAD
@@ -274,7 +312,6 @@ WWD
 Wales Online
 Washington Examiner
 Wccftech
-Windows Central
 XDA Developers
 Yahoo
 ZDNet
@@ -282,21 +319,29 @@ allkpop
 autoevolution
 birminghammail
 dailyrecord
+fijivillage.com
 football.london
 ghananewsagency.org
 iAfrica
+iDownloadBlog.com
 iHarare News
 iMore
 iNFOnews.ca
+iTnews
 manilastandard.net
 mid-day
 mirror
 mobilesyrup
+myGC.com.au
+mynewsgh.com
 novinite.com
 sportskeeda
+tech.slashdot.org
+thenewpaper
 tsa
 www.businessinsider.sg
 www.ctvnews.ca
+www.geo.tv
 GeekTyrant
 KTVO
 CoinDesk
@@ -306,3 +351,7 @@ SportsCafe
 KOMO News
 BusinessMirror
 Coinspeaker
+90min
+Kenyans.co.ke
+Motley Fool Australia
+The New Indian Express
