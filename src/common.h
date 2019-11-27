@@ -10,6 +10,21 @@ constexpr size_t kNumThreads = 6;
 
 using BOWDict = std::unordered_map<std::string, size_t>;
 
+
+void AddVecMean(std::vector<double>* first, const std::vector<double>& second) {
+    double denumerator = 2; 
+    for (size_t i = 0; i < second.size(); ++i) {
+        first->at(i) = (first->at(i) + second.at(i)) / denumerator;
+    }
+}
+
+void DivVec(std::vector<double>* vec, double denumerator) {
+    for (auto& v : *vec) {
+        v /= denumerator;
+    }
+}
+
+
 class BOW {
 public:
     BOW(std::shared_ptr<BOWDict> dict)
@@ -24,7 +39,7 @@ public:
         }
     }
 
-    std::vector<double> const & Get() const {
+    std::vector<double> Get() const {
         return bag_;
     }
 
@@ -62,8 +77,15 @@ struct DocFeatures {
         return result;
     }
 
+    std::vector<double> Get(const std::string& feature_name) const {
+        auto bow = bows_.at(feature_name);
+        bow.Normalize();
+        return bow.Get();
+    }
+
     std::unordered_map<std::string, BOW> bows_;
     std::string doc_name_;
     std::string lang_;
     bool is_news_ = false;
+    double is_news_score = 0;
 };
