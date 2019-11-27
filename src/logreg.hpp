@@ -4,6 +4,7 @@
 #include <fstream>
 #include <iostream>
 #include <cmath>
+#include <iomanip>
 
 
 class LogisticRegression {
@@ -27,7 +28,7 @@ public:
         for (size_t i = 0; i < features_count_; ++i) {
             result += (features[i] - mean_[i]) * weights_[i];
         }
-        return 1. / (1. - std::exp(-(result + bias_)));
+        return 1. / (1. + std::exp(-(result + bias_)));
     }
 
 
