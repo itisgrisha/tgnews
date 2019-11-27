@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <iomanip>
+#include <thread>
 #include <vector>
 #include <string>
 #include <unordered_map>
@@ -13,11 +14,29 @@
 
 using json = nlohmann::json;
 
+
+void LoadDocsTask(std::vector<HTMLDocument>* documents,
+                  const std::vector<std::string>& files,
+                  size_t start,
+                  size_t end) {
+    for (; start < end; ++start) {
+        documents->at(start) = HTMLDocument(files.at(start));
+    }
+}
+
+
 std::vector<HTMLDocument> LoadDocs(const std::vector<std::string>& files) {
-    std::vector<HTMLDocument> documents;
-    for (const auto& file : files) {
-        documents.emplace_back(file);
-        documents.back().SetMeta("path", file);
+    std::vector<HTMLDocument> documents(files.size());
+    size_t start = 0;
+    size_t step = files.size() / kNumThreads;
+    size_t end = step;
+    std::vector<std::thread> workers;
+    for (; start < files.size(); start+=step) {
+        end = std::min(files.size(), start+step);
+        workers.emplace_back(LoadDocsTask, &documents, std::cref(files), start, end);
+    }
+    for (auto& w : workers) {
+        w.join();
     }
     return documents;
 }

@@ -34,7 +34,7 @@ int main(int argc, char *argv[]) {
         DetectNews(&features);
         DumpNewsDetTest(features, input_folder);
     } else if (task == "dump_languages") {
-        RecognizeLanguage(&docs, false);
+        RecognizeLanguage(&docs, true);
         MakeTsv(docs, argv[3]);
     } else if (task == "features") {
         auto start = std::chrono::high_resolution_clock::now();

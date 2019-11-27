@@ -40,10 +40,46 @@ private:
 
 class HTMLDocument {
 public:
+    HTMLDocument() {
+        document_ = nullptr;
+        html_ = nullptr;
+        html_size_ = 0;
+    }
+
     explicit HTMLDocument(const std::string& file_path) {
         document_ = lxb_html_document_create();
         ReadDocument(file_path);
         ParseDocument();
+        meta_["path"] = file_path;
+    }
+
+
+    HTMLDocument(const HTMLDocument& other) = delete;
+
+    HTMLDocument(HTMLDocument&& other) : HTMLDocument() {
+        Swap(*this, other);
+    }
+
+    HTMLDocument& operator=(HTMLDocument other) {
+        Swap(*this, other);
+        return *this;
+    }
+
+    ~HTMLDocument() {
+        if (document_ != nullptr) {
+            delete[] html_;
+            lxb_html_document_destroy(document_);
+        }
+    }
+
+    friend void Swap(HTMLDocument& first, HTMLDocument& second) {
+        std::swap(first.text_, second.text_);
+        std::swap(first.meta_, second.meta_);
+        std::swap(first.related_links_, second.related_links_);
+
+        std::swap(first.html_, second.html_);
+        std::swap(first.document_, second.document_);
+        std::swap(first.html_size_, second.html_size_);
     }
 
     std::string GetText() const {
@@ -76,29 +112,6 @@ public:
 
     const std::vector<std::string> GetLinks() const {
         return related_links_;
-    }
-
-    HTMLDocument(const HTMLDocument& other) = delete;
-    HTMLDocument& operator=(const HTMLDocument& other) = delete;
-
-    HTMLDocument(HTMLDocument&& other) {
-        text_ = std::move(other.text_);
-        meta_ = std::move(other.meta_);
-        related_links_ = std::move(other.related_links_);
-
-        html_ = other.html_;
-        document_ = other.document_;
-        html_size_ = other.html_size_;
-        other.html_ = nullptr;
-        other.document_ = nullptr;
-        other.html_size_ = 0;
-    }
-
-    ~HTMLDocument() {
-        if (document_ != nullptr) {
-            delete[] html_;
-            lxb_html_document_destroy(document_);
-        }
     }
 
 private:
