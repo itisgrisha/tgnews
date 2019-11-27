@@ -35,12 +35,13 @@ std::unordered_map<std::string, std::string> GetUrl2Lang() {
 void RecogTask(std::vector<HTMLDocument>* documents,
                const std::unordered_map<std::string, std::string>& site2lang,
                chrome_lang_id::NNetLanguageIdentifier& langrec,
+               bool use_lists,
                size_t begin,
                size_t end) {
     for (size_t i = begin; i < end; ++i) {
         auto& html_doc = documents->at(i);
         auto it = site2lang.find(html_doc.GetMeta("og:site_name"));
-        if (it != site2lang.end()) {
+        if (it != site2lang.end() && use_lists) {
             html_doc.SetMeta("lang", it->second);
             html_doc.SetMeta("lang_score", "1");
         } else {
@@ -52,22 +53,17 @@ void RecogTask(std::vector<HTMLDocument>* documents,
 }
 
 
-void RecognizeLanguage(std::vector<HTMLDocument>* documents) {
+void RecognizeLanguage(std::vector<HTMLDocument>* documents, bool use_lists=true) {
     auto site2lang = GetUrl2Lang();
     chrome_lang_id::NNetLanguageIdentifier langrec(0, 1000);
     size_t step = documents->size() / kNumThreads;
     size_t begin = 0;
     size_t end = step;
     std::vector<std::thread> workers;
-    for (; begin + step < documents->size(); begin+=step) {
+    for (; begin < documents->size(); begin+=step) {
         end = std::min(documents->size(), begin+step);
-        workers.emplace_back(RecogTask, documents, std::cref(site2lang), std::ref(langrec), begin, end);
+        workers.emplace_back(RecogTask, documents, std::cref(site2lang), std::ref(langrec), use_lists, begin, end);
     }
-    end = std::min(documents->size(), begin+step);
-    if (begin < end) {
-        workers.emplace_back(RecogTask, documents, std::cref(site2lang), std::ref(langrec), begin, end);
-    }
-
     for (auto& worker : workers) {
         worker.join();
     }

@@ -33,8 +33,8 @@ int main(int argc, char *argv[]) {
         auto features = GenerateFeatures(docs, 3);
         DetectNews(&features);
         DumpNewsDetTest(features, input_folder);
-    } else if (task == "dump") {
-        RecognizeLanguage(&docs);
+    } else if (task == "dump_languages") {
+        RecognizeLanguage(&docs, false);
         MakeTsv(docs, argv[3]);
     } else if (task == "features") {
         auto start = std::chrono::high_resolution_clock::now();
