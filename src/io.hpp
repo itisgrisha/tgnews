@@ -50,6 +50,18 @@ void DumpNewsDet(const std::vector<DocFeatures>& docs, const std::string& path_p
     std::cout << std::setw(2) << result << std::endl;
 }
 
+void DumpNewsDetTest(const std::vector<DocFeatures>& docs, const std::string& path_prefix) {
+    json result;
+    size_t prefix_len = path_prefix.size() + (path_prefix.back() != '/');
+    for (const auto& doc : docs) {
+        // DIRTY
+        if (doc.lang_ == "ru") {
+            result[doc.doc_name_] = doc.is_news_score;
+        }
+    }
+    std::cout << std::setw(2) << result << std::endl;
+}
+
 std::shared_ptr<BOWDict> ReadFeaturesNames(const std::string& path) {
     auto features_names = std::make_shared<BOWDict>();
     std::ifstream input(path);
