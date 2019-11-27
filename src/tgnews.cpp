@@ -28,6 +28,11 @@ int main(int argc, char *argv[]) {
         auto features = GenerateFeatures(docs, 3);
         DetectNews(&features);
         DumpNewsDet(features, input_folder);
+    } else if (task == "news_test") {
+        RecognizeLanguage(&docs);
+        auto features = GenerateFeatures(docs, 3);
+        DetectNews(&features);
+        DumpNewsDetTest(features, input_folder);
     } else if (task == "dump") {
         RecognizeLanguage(&docs);
         MakeTsv(docs, argv[3]);
