@@ -8,7 +8,7 @@ def process(path):
     prefix = '/eee/tgnews/data'
     print("RUNNING", path)
     call(
-        ['./build/tgnews', 'dump', os.path.join(prefix, path), os.path.join(dst, path) + '.tsv'],
+        ['./build/tgnews', 'dump_languages', os.path.join(prefix, path), os.path.join(dst, path) + '.tsv'],
     )
 
 
@@ -18,5 +18,5 @@ dst = '/eee/tgnews/meta'
 tasks = [x for x in os.listdir(prefix) if os.path.isdir(os.path.join(prefix, x))]
 
 
-with Pool(3) as p:
+with Pool(1) as p:
     p.map(process, tasks)
