@@ -2,6 +2,7 @@
 
 #include <vector>
 #include <string>
+#include <regex>
 #include <thread>
 
 #include "common.h"
@@ -13,9 +14,7 @@
 std::vector<double> GenerateNewsDetFeatures(const DocFeatures& features) {
     auto title_upostags = features.Get("title:upostags");
     auto text_upostags = features.Get("text:upostags");
-    //auto title_feats = features.Get("title:feats");
     auto text_feats = features.Get("text:feats");
-    //AddVecMean(&title_feats, text_feats);
     title_upostags.insert(title_upostags.end(), text_upostags.begin(), text_upostags.end());
     title_upostags.insert(title_upostags.end(), text_feats.begin(), text_feats.end());
     DivVec(&title_upostags, 3);
@@ -28,9 +27,16 @@ void DetectNewsTask(std::vector<DocFeatures>* documents,
                     const LogisticRegression& en_model,
                     size_t start,
                     size_t end) {
+    std::regex news("(news|novosti)");
+    std::regex https("https://[^/]*");
+
     for (; start < end; ++start) {
         auto& doc = documents->at(start);
-        if (doc.lang_ == "ru") {
+        auto url = std::regex_replace(doc.url_, https, "");
+        if (std::regex_search(url, news)) {
+            doc.is_news_score = 1;
+            doc.is_news_ = true;
+        } else if (doc.lang_ == "ru") {
             doc.is_news_score = ru_model.Infer(GenerateNewsDetFeatures(doc));
             doc.is_news_ = doc.is_news_score > 0.5;
         } else if (doc.lang_ == "en") {

@@ -86,6 +86,7 @@ struct DocFeatures {
     std::unordered_map<std::string, BOW> bows_;
     std::string doc_name_;
     std::string lang_;
+    std::string url_;
     bool is_news_ = false;
     double is_news_score = 0;
 };
