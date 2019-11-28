@@ -33,7 +33,7 @@ public:
         feats_dict_ = ReadFeaturesNames("meta/Feats.txt");
     }
 
-    DocFeatures GenerateFeatures(const HTMLDocument& doc, size_t sentences_count) {
+    DocFeatures GenerateFeatures(const HTMLDocument& doc, int sentences_count) {
         auto features = DocFeatures();
         features.bows_.emplace("title:upostags", upostags_dict_);
         features.bows_.emplace("title:feats", feats_dict_);
@@ -44,8 +44,12 @@ public:
         auto& reader = readers_.at(lang);
         auto& model = models_.at(lang);
 
+        if (sentences_count < 0) {
+            sentences_count = 1'000'000;
+        }
+
         UpdateUDPipe(&features, model, reader, doc.GetText(), {"text:upostags", "text:feats"}, sentences_count);
-        UpdateUDPipe(&features, model, reader, doc.GetMeta("og:title"), {"title:upostags", "title:feats"}, 100);
+        UpdateUDPipe(&features, model, reader, doc.GetMeta("og:title"), {"title:upostags", "title:feats"}, 1'000'000);
 
         return features;
     }
@@ -72,11 +76,11 @@ private:
                       pReader& reader,
                       std::string_view text_view,
                       std::vector<std::string> features_names,
-                      size_t sentences_count) {
+                      int sentences_count) {
         reader->reset_document("");
         reader->set_text(text_view.data());
         auto& upostags_bow = features->bows_.at(features_names[0]);
-        for (size_t total_sentences = 0;
+        for (int total_sentences = 0;
              (total_sentences < sentences_count) && reader->next_sentence(sentence_, error_message_);
              ++total_sentences) {
             model->tag(sentence_, udpipe::pipeline::DEFAULT, error_message_);
@@ -123,19 +127,14 @@ std::vector<DocFeatures> GenerateFeatures(const std::vector<HTMLDocument>& docum
                                           size_t total_sentences) {
     std::vector<DocFeatures> features(documents.size());
 
-    size_t step = documents.size() / kNumThreads;
+    size_t step = std::max<size_t>(1u, documents.size() / kNumThreads);
     size_t begin = 0;
     size_t end = step;
     std::vector<std::thread> workers;
-    for (; begin + step < documents.size(); begin+=step) {
+    for (; begin < documents.size(); begin+=step) {
         end = std::min(documents.size(), begin+step);
         workers.emplace_back(GenerateFeaturesTask, &features, std::cref(documents), total_sentences, begin, end);
     }
-    end = std::min(documents.size(), begin+step);
-    if (begin < end) {
-        workers.emplace_back(GenerateFeaturesTask, &features, std::cref(documents), total_sentences, begin, end);
-    }
-
     for (auto& worker : workers) {
         worker.join();
     }

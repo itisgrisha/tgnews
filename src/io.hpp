@@ -28,7 +28,7 @@ void LoadDocsTask(std::vector<HTMLDocument>* documents,
 std::vector<HTMLDocument> LoadDocs(const std::vector<std::string>& files) {
     std::vector<HTMLDocument> documents(files.size());
     size_t start = 0;
-    size_t step = files.size() / kNumThreads;
+    size_t step = std::max<size_t>(files.size() / kNumThreads, 1u);
     size_t end = step;
     std::vector<std::thread> workers;
     for (; start < files.size(); start+=step) {

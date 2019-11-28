@@ -56,7 +56,7 @@ void RecogTask(std::vector<HTMLDocument>* documents,
 void RecognizeLanguage(std::vector<HTMLDocument>* documents, bool use_lists=true) {
     auto site2lang = GetUrl2Lang();
     chrome_lang_id::NNetLanguageIdentifier langrec(0, 1000);
-    size_t step = documents->size() / kNumThreads;
+    size_t step = std::max<size_t> (1u, documents->size() / kNumThreads);
     size_t begin = 0;
     size_t end = step;
     std::vector<std::thread> workers;

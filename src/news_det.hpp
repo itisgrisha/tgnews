@@ -13,11 +13,11 @@
 std::vector<double> GenerateNewsDetFeatures(const DocFeatures& features) {
     auto title_upostags = features.Get("title:upostags");
     auto text_upostags = features.Get("text:upostags");
-    auto title_feats = features.Get("title:feats");
+    //auto title_feats = features.Get("title:feats");
     auto text_feats = features.Get("text:feats");
-    AddVecMean(&title_feats, text_feats);
+    //AddVecMean(&title_feats, text_feats);
     title_upostags.insert(title_upostags.end(), text_upostags.begin(), text_upostags.end());
-    title_upostags.insert(title_upostags.end(), title_feats.begin(), title_feats.end());
+    title_upostags.insert(title_upostags.end(), text_feats.begin(), text_feats.end());
     DivVec(&title_upostags, 3);
     return title_upostags;
 }
@@ -45,7 +45,7 @@ void DetectNews(std::vector<DocFeatures>* documents) {
     LogisticRegression ru_model("models/news_ru_model.logreg");
     LogisticRegression en_model("models/news_en_model.logreg");
     size_t documents_count = documents->size();
-    size_t step = documents_count / kNumThreads;
+    size_t step = std::max<size_t>(1u, documents_count / kNumThreads);
     size_t start = 0;
     size_t end = step;
     std::vector<std::thread> workers;

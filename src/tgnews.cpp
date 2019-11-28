@@ -25,12 +25,12 @@ int main(int argc, char *argv[]) {
         DumpLanguage(docs, input_folder);
     } else if (task == "news") {
         RecognizeLanguage(&docs);
-        auto features = GenerateFeatures(docs, 3);
+        auto features = GenerateFeatures(docs, -1);
         DetectNews(&features);
         DumpNewsDet(features, input_folder);
     } else if (task == "news_test") {
         RecognizeLanguage(&docs);
-        auto features = GenerateFeatures(docs, 3);
+        auto features = GenerateFeatures(docs, -1);
         DetectNews(&features);
         DumpNewsDetTest(features, input_folder);
     } else if (task == "dump_languages") {
