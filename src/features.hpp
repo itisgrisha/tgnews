@@ -27,7 +27,7 @@ public:
         for (const auto& lang : kLangs) {
             auto model_path = std::string("models/").append(lang).append(".udpipe");
             models_[lang].reset(udpipe::model::load(model_path.c_str()));
-            readers_[lang].reset(models_[lang]->new_tokenizer("tokenizer"));
+            readers_[lang].reset(models_[lang]->new_tokenizer("tokenizer")->new_generic_tokenizer_input_format());
         }
         upostags_dict_ = ReadFeaturesNames("meta/Upostags.txt");
         feats_dict_ = ReadFeaturesNames("meta/Feats.txt");
