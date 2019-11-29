@@ -6,23 +6,29 @@
 #include <vector>
 #include <algorithm>
 
+#include "common.h"
 #include "html_parse.hpp"
 #include "io.hpp"
 
 
-void MakeTsv(const std::vector<HTMLDocument>& documents, const std::string& output_fname) {
+void MakeTsv(std::vector<HTMLDocument>& documents,
+             const std::vector<DocFeatures>& features,
+             const std::string& output_fname) {
     std::unordered_set<std::string> keys;
     for (const auto& doc : documents) {
         for (const auto& key : doc.GetMetaKeys()) {
             keys.emplace(key);
         }
     }
+    keys.emplace("is_news");
+    keys.emplace("is_news_score");
     std::unordered_map<std::string, std::vector<std::string>> result;
     size_t total = 0;
-    for (const auto& doc : documents) {
-        //if (doc.GetMeta("path") == "/eee/tgnews/data/20191121/00/2653864115930851288.html") {
-        //    std::cout << "KEK" <<std::endl;
-        //}
+    for (size_t i = 0; i < documents.size(); ++i) {
+        auto& doc = documents.at(i);
+        auto& feature = features.at(i);
+        doc.SetMeta("is_news", std::to_string(feature.is_news_));
+        doc.SetMeta("is_news_score", std::to_string(feature.is_news_score));
         std::string links;
         for (const auto& link : doc.GetLinks()) {
             links += link + ","; 
@@ -57,9 +63,6 @@ void MakeTsv(const std::vector<HTMLDocument>& documents, const std::string& outp
     ostream << keys_vec.back() << "\n";
     for (size_t i = 0; i + 1 < total; ++i) {
         for (size_t j = 0; j + 1 < keys_vec.size(); ++j) {
-            //if (result[keys_vec[j]][i] == "/eee/tgnews/data/20191121/00/2653864115930851288.html") {
-            //    std::cout << "kaka" << std::endl;
-            //}
             ostream << result[keys_vec[j]][i] << "\t";
         }
         ostream << result[keys_vec.back()][i] << "\n";

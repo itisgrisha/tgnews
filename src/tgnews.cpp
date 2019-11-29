@@ -15,11 +15,8 @@
 int main(int argc, char *argv[]) {
     std::string task(argv[1]);
     std::string input_folder(argv[2]);
-
     auto html_files = GlobHTML(input_folder);
-
     auto docs = LoadDocs(html_files);
-
     if (task == "languages") {
         RecognizeLanguage(&docs);
         DumpLanguage(docs, input_folder);
@@ -33,9 +30,11 @@ int main(int argc, char *argv[]) {
         auto features = GenerateFeatures(docs, -1);
         DetectNews(&features);
         DumpNewsDetTest(features, input_folder);
-    } else if (task == "dump_languages") {
+    } else if (task == "dump") {
         RecognizeLanguage(&docs, true);
-        MakeTsv(docs, argv[3]);
+        auto features = GenerateFeatures(docs, -1);
+        DetectNews(&features);
+        MakeTsv(docs, features, argv[3]);
     } else if (task == "features") {
         auto start = std::chrono::high_resolution_clock::now();
         RecognizeLanguage(&docs);
@@ -45,6 +44,5 @@ int main(int argc, char *argv[]) {
         std::cout << "FEATURES GEN: " << std::chrono::duration<double, std::milli>(std::chrono::high_resolution_clock::now()-start).count() << std::endl;
         start = std::chrono::high_resolution_clock::now();
     }
-    
     return 0;
 }

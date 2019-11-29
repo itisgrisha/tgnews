@@ -5,13 +5,13 @@ import os
 
 
 prefix = '/eee/tgnews/data'
-dst = '/eee/tgnews/meta/all_lang_lists'
+dst = '/eee/tgnews/meta/all_lang_news'
 
 def process(path):
     if os.path.isdir(os.path.join(prefix, path)):
         print("RUNNING", path)
         call(
-            ['./build/tgnews', 'dump_languages', os.path.join(prefix, path), os.path.join(dst, path) + '.tsv'],
+            ['./build/tgnews', 'dump', os.path.join(prefix, path), os.path.join(dst, path) + '.tsv'],
         )
 
 

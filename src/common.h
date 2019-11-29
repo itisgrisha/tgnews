@@ -6,7 +6,7 @@
 #include <memory>
 
 
-constexpr size_t kNumThreads = 6;
+constexpr size_t kNumThreads = 8;
 
 using BOWDict = std::unordered_map<std::string, size_t>;
 
