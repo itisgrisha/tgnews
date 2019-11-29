@@ -1,8 +1,10 @@
 import os
 import csv
 from glob import glob
-import pandas as pd
 from argparse import ArgumentParser
+
+import numpy as np
+import pandas as pd
 
 def parse_args():
     parser = ArgumentParser()
@@ -29,3 +31,9 @@ if __name__ == '__main__':
             quoting=csv.QUOTE_NONE,
             index=False,
             sep='\t')
+        table[np.logical_and(table['lang']==lang, table['is_news']==1)].to_csv(
+            os.path.join(args.output_folder, lang+'_news.tsv'),
+            quoting=csv.QUOTE_NONE,
+            index=False,
+            sep='\t')
+
