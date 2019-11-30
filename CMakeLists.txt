@@ -34,6 +34,7 @@ target_include_directories(tgnews PUBLIC
     src/cld3/
     src/udpipe/src
     src/udpipe/src_lib_only
+    src/bigartm/src/artm
 )
 
 target_link_libraries(tgnews
@@ -41,8 +42,14 @@ target_link_libraries(tgnews
     ${CMAKE_SOURCE_DIR}/src/udpipe/src/libudpipe.a
     ${CMAKE_SOURCE_DIR} nlohmann_json::nlohmann_json
     ${CMAKE_SOURCE_DIR}/src/cld3/build/libcld3.a
+    ${CMAKE_SOURCE_DIR}/src/bigartm/build/lib/libartm-static.a
     -lstdc++fs
+    ${CMAKE_SOURCE_DIR}/src/bigartm/build/lib/libartm-static.a
+    ${CMAKE_SOURCE_DIR}/src/bigartm/build/lib/libmessages_proto.a
+    ${CMAKE_SOURCE_DIR}/src/bigartm/build/lib/libinternals_proto.a
+    ${CMAKE_SOURCE_DIR}/src/bigartm/build/lib/libprotoc.a
+    ${CMAKE_SOURCE_DIR}/src/bigartm/build/lib/libprotobuf.a
     -lpthread
-    -lprotobuf
+    #-lprotobuf
 )
 

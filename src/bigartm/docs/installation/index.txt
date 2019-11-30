@@ -1,0 +1,16 @@
+.. This files 
+
+.. _installation:
+
+Installation
+============
+
+.. toctree::
+   :maxdepth: 2
+
+   windows
+   linux
+   docker
+
+
+.. vim:ft=rst

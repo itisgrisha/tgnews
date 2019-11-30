@@ -1,0 +1,7 @@
+// Copyright 2017, Additive Regularization of Topic Models.
+
+#pragma once
+
+#define ARTM_VERSION_MAJOR @ARTM_VERSION_MAJOR@
+#define ARTM_VERSION_MINOR @ARTM_VERSION_MINOR@
+#define ARTM_VERSION_PATCH @ARTM_VERSION_PATCH@
