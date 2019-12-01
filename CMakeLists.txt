@@ -10,6 +10,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Wall -Wextra -Wpedantic -g -fsanitize=address,undefined -fno-sanitize-recover=all")
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O3")
 
+
 project(tgnews)
 
 set(JSON_BuildTests OFF CACHE INTERNAL "")
@@ -29,12 +30,20 @@ add_executable(tgnews
     src/common.h
 )
 
+set(BOOST_ROOT /usr/local/boost_1_65_1)
+set(Boost_USE_STATIC_LIBS ON)
+find_package(Boost REQUIRED COMPONENTS thread system filesystem iostreams)
+if (NOT Boost_FOUND)
+  message(SEND_ERROR "Failed to find boost libraries.")
+endif (NOT Boost_FOUND)
+
 target_include_directories(tgnews PUBLIC
     src/lexbor/source
     src/cld3/
     src/udpipe/src
     src/udpipe/src_lib_only
     src/bigartm/src/artm
+    ${Boost_INCLUDE_DIRS}
 )
 
 target_link_libraries(tgnews
@@ -51,11 +60,16 @@ target_link_libraries(tgnews
     ${CMAKE_SOURCE_DIR}/src/bigartm/build/lib/libglog.a
     ${CMAKE_SOURCE_DIR}/src/bigartm/build/lib/libprotoc.a
     ${CMAKE_SOURCE_DIR}/src/bigartm/build/lib/libprotobuf.a
-    -lpthread
-    -lboost_system
-    -lboost_thread
-    -lboost_filesystem
-    -lboost_iostreams
+    #-lpthread
+    Boost::boost
+    Boost::system
+    Boost::thread
+    Boost::filesystem
+    Boost::iostreams
+    #-lboost_system
+    #-lboost_thread
+    #-lboost_filesystem
+    #-lboost_iostreams
     #-lprotobuf
 )
 
