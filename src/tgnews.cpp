@@ -35,8 +35,8 @@ int main(int argc, char *argv[]) {
     } else if (task == "news_test") {
         RecognizeLanguage(&docs);
         auto features = GenerateFeatures(docs, -1);
-        DetectNews(&features);
-        DumpNewsDetTest(features, input_folder);
+        auto news = DetectNews(&features);
+        DumpNewsDetTest(news, input_folder);
     } else if (task == "dump") {
         RecognizeLanguage(&docs, true);
         auto features = GenerateFeatures(docs, -1);

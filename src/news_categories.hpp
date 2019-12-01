@@ -77,7 +77,6 @@ public:
                 }
             }
         }
-        //std::cout << theta.ShortDebugString() << std::endl;
     }
 
 private:
