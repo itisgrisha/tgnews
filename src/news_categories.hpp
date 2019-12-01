@@ -94,9 +94,9 @@ std::shared_ptr<std::unordered_map<std::string, std::vector<DocFeatures>>> GetCa
         "Society",
         "Economy",
         "Technology",
-        "Sports",
         "Entertainment",
         "Science",
+        "Sports",
         "Other"
     };
     std::vector<std::string> langs = {"ru", "en"};

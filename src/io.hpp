@@ -8,6 +8,7 @@
 #include <memory>
 
 #include <nlohmann/json.hpp>
+#include <boost/algorithm/string.hpp>
 
 #include "common.h"
 
@@ -78,7 +79,7 @@ void DumpNewsCat(std::shared_ptr<std::unordered_map<std::string, std::vector<Doc
         for (const auto& doc : cat2doc.second) {
             paths.emplace_back(doc.doc_name_.substr(prefix_len));
         }
-        result.emplace_back(json({{"category", cat2doc.first}, {"articles", paths}}));
+        result.emplace_back(json({{"category", boost::algorithm::to_lower_copy(cat2doc.first)}, {"articles", paths}}));
     }
     std::cout << std::setw(2) << result << std::endl;
 }
