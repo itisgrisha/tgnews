@@ -28,7 +28,7 @@ void DetectNewsTask(std::vector<DocFeatures>* documents,
                     size_t start,
                     size_t end) {
     std::regex news("(news|novosti)");
-    std::regex https("https://[^/]*");
+    std::regex https("https*://[^/]*");
 
     for (; start < end; ++start) {
         auto& doc = documents->at(start);
@@ -43,13 +43,15 @@ void DetectNewsTask(std::vector<DocFeatures>* documents,
             doc.is_news_score = en_model.Infer(GenerateNewsDetFeatures(doc));
             doc.is_news_ = doc.is_news_score > 0.5;
         }
+        //std::cout << url << " is news: " << doc.is_news_score << std::endl;
     }
 }
 
 
 std::vector<DocFeatures> DetectNews(std::vector<DocFeatures>* documents) {
-    LogisticRegression ru_model("models/news_ru_model.logreg");
-    LogisticRegression en_model("models/news_en_model.logreg");
+    //std::cout << documents->size() << std::endl;
+    LogisticRegression ru_model("models/ru/news_ru_model.logreg");
+    LogisticRegression en_model("models/en/news_en_model.logreg");
     size_t documents_count = documents->size();
     size_t step = std::max<size_t>(1u, documents_count / kNumThreads);
     size_t start = 0;

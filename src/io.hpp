@@ -62,7 +62,7 @@ void DumpNewsDet(const std::vector<DocFeatures>& docs, const std::string& path_p
     size_t prefix_len = path_prefix.size() + (path_prefix.back() != '/');
     for (const auto& doc : docs) {
         // DIRTY
-        if (doc.is_news_ && doc.lang_ == "ru") {
+        if (doc.is_news_) {
             result["articles"].emplace_back(doc.doc_name_.substr(prefix_len));
         }
     }

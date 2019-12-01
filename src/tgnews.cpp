@@ -19,8 +19,8 @@ int main(int argc, char *argv[]) {
     auto html_files = GlobHTML(input_folder);
     auto docs = LoadDocs(html_files);
     if (task == "languages") {
-        RecognizeLanguage(&docs);
-        DumpLanguage(docs, input_folder);
+        auto langs_ruen = RecognizeLanguage(&docs);
+        DumpLanguage(langs_ruen, input_folder);
     } else if (task == "news") {
         auto langs_ruen = RecognizeLanguage(&docs);
         auto features = GenerateFeatures(langs_ruen, -1);

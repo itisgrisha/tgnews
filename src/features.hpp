@@ -110,7 +110,7 @@ private:
         //for (int i = 0; i < 80; ++i){
         //    std::cout << "-";
         //}
-        std::cout << std::endl;
+        //std::cout << std::endl;
         reader->reset_document("");
         reader->set_text(text.c_str());
         auto& upostags_bow = features->bows_.at(features_names[0]);
