@@ -1,357 +1,217 @@
-/Film
 12 NEWS WBNG
 680News
 9to5Google
 9to5Mac
 ABC Action News - WFTS - Tampa Bay
 ABC News
-ABC15 Arizona
 ABC7 Los Angeles
 ABC7 New York
-AMN
-Africanews
-Algoa FM
 Aljazeera
-AllHipHop
 Android Central
-Android Community
 Android Headlines
 Android Police
-AppleInsider
 Arab News
 ArchDaily
 Ars Technica
 Asharq AL-awsat
-Atlas Obscura
 Autocar India
-Autosport
-BALLS.ie
 BBC News
-BBC Sport
 BGR
-BMW BLOG
 BNN
-BNN - Baltic News Network
-BTC Manager
 Bangalore Mirror
-Barriere Star Journal
 Bdnews24
 BeSoccer
-Bitcoinist.com
-BleepingComputer
-Bloody Disgusting
-Breaking Israel News
+Bloody Elbow
+Boing Boing
 Breaking News
 Breitbart
-BrightSide — Inspiration. Creativity. Wonder.
 BristolLive
 BrooklynVegan
-Bulawayo24 News
 Business Insider Australia
 Business Insider Malaysia
-Business Today
 Business-Standard
 BusinessLine
-BusinessTech
 Bustle
-Buzz.ie
 CBR.com
 CBS News
-CCN.com
 CHANNEL3000
 CINEMABLEND
 CNA
-CP24
-Capital News
-Capital Sports
-CarBuzz
+Calgary Herald
+Castanet
 CaughtOffside
 Celebrity Insider
 Channel24
 ChronicleLive
 City A.M.
 City NEWS 1130
-CityPress
 Coconuts
 Cointelegraph
-Community News Group
-Concise
-Connaught Telegraph
-Cosmopolitan
 Courthouse News Service
-Critical Hit
-Crowdfund Insider
-CryptoPotato
 DAILY SABAH
 DAWN.COM
-Daily Times
 Deccan Chronicle
 Deccan Herald
 Destructoid
-Dezeen
+DevonLive
+Digital Journal
 Dundalk Democrat
 Dunya News
-EJ Insight
 ESPN.com
-ESPNcricinfo
 East Anglian Daily Times
 Egypt Today
-Eleven Media Group Co., Ltd
 Engadget
 Entertainment Daily
 EurekAlert!
-Eurogamer.net
-Everything Barca
 Express & Star
 FOX Sports Asia
 FXStreet
-Face2Face Africa
 Financial Post
 Financial Times
 Forbes
 Fox 4
 Fox News
-Fox Sports
-Futurism
-GHANA PAGE
 GPblog.com
-GSMArena
 GaadiWaadi.com
-Geek.com
-GhBase.com
 Ghana Soccernet
 GhanaWeb
 Gizchina
 Gizmochina
 Gizmodo AU
 Gizmodo UK
-HUFFPOST
 HYPEBEAST
-Haaretz
-Hackaday
-Hawaii News Now
-HeraldNet
 Hollywood Life
-Horse Racing Nation
-HotHardware
-IPPMEDIA
-ITV News
-ITWeb
 Inc.com
 India Today
 India.com
 Infowars
-Interesting Engineering
 Investing.com
 InvestorPlace
 Irish Mirror
-IrishCentral
 Irishexaminer
+Israel National News
 Jamaica Observer
 Japan Today
 Jersey Evening Post
-Junkee
-Just Jared Jr.
-KNOE 8 News
 KahawaTungu
 KitchenerToday.com
 Koimoi
+Kotaku Australia
 Kotaku UK
-LailasNews.com
 Lancashire Post
 Las Vegas Review-Journal
-Lifehacker Australia
 Liverpool Echo
-MLB.com
-MMA FIGHTING
 MSPoweruser
-MacroBusiness
 Malaymail
-Manila Bulletin Business
-MarketWatch
 Metro
-Modern Diplomacy
 Moneycontrol
 Motor1.com
-MyBroadband
-NDTVSports.com
 NEWS wpxi.com
 NME
 NY Times
 NaijaNews.com
 Nairametrics.com
-National Post
-Nehanda Radio
+New York Post
 News24
 NewsBTC
-NewsChannel 10
+Newstalk
+Nintendo Life
 North Delta Reporter
 NottinghamshireLive
-OVERDRIVE
 Otago Daily Times Online News
-PCGamesN
-POLITICO
-PUNDIT ARENA
-Pedestrian TV
+PC Gamer
+PYMNTS.com
+Peacefmonline
 PerthNow
+PlymouthLive
+Polygon
 Premium Times Nigeria
 Psychology Today
-Pulse Live
 Punch Newspapers
-Radio Free Europe / Radio Liberty
 Rappler
-Rediff
 Republic World
 Rugbypass
 SCOOP
-SOHH
-SPORT
 SPOTBOYE
 Sahara Reporters
-Saskatoon StarPhoenix
 Saudi Gazette
-ScienceAlert
 ScienceDaily
 Seeking Alpha
-Shacknews
 Shropshire Star
-Sky Sports
 Soccer Laduma
 Sport
-Sporting Life
 Sporting News
 Sports Mole
-SportsMax
 Sputniknews
-St. Lucia News Online
-Star-Advertiser
 Stereogum
-Successful Farming
-SuperHeroHype
-Swarajya
-TEAM talk
-THE CITIZEN
 THE SCOTSMAN
-TOLO news
-Taiwan News
 Talking Points Memo
 Tech Advisor
-Tech Xplore
 TechRadar
-Techdirt
-Techweez
-The Atlantic
+TechSpot
+The Age
 The Boot Room
-The Business Times
 The Cerbat Gem
-The Citizen
 The Courier
 The Eagle Online
-The East African
 The Economic Times
-The Economist
-The Empire of The Kop
 The Express Tribune
-The Gazette
+The Gleaner
 The Globe and Mail
 The Guardian
 The Hindu
-The Hollywood Reporter
 The Independent
+The Indian Express
 The Inquisitr
 The Irish News
 The Irish Times
 The Jakarta Post
 The Japan Times
-The Mac Observer
-The Motley Fool
+The Jewish Press
 The Nation Newspaper
 The National Interest
 The New Daily
-The Next Web
-The Online Citizen
 The Peninsula
-The Phnom Penh Post
-The Portugal News Online
 The Scottish Sun
 The Seattle Times
 The Sentinel
-The Sport Review
-The Sports Daily
-The SportsRush
 The Spun
-The Standard
 The Stettler Independent
 The Telegraph
 The Times of India
+The Verge
 The Washington Times
 The Week
 The Zimbabwe Mail
 The42
 TheHill
-TheJournal.ie
-This Is Anfield
-Time
+TheWrap
+Time Out Dubai
 Times Colonist
-TipperaryLive
-Total Pro Sports
-TravelDailyNews International
-Traveller
-Trusted Reviews
-UNIAN
+Times of Oman
 UNILAD
-VG247
-VentureBeat
-WBTV
-WFXT
+UPI
+VULTURE
 WION
-WORLD OF BUZZ
-WSVN 7News
 WVLT
 WWD
 Wales Online
 Washington Examiner
 Wccftech
+Windows Central
 XDA Developers
 Yahoo
 ZDNet
 allkpop
-autoevolution
 birminghammail
 dailyrecord
-fijivillage.com
-football.london
 ghananewsagency.org
-iAfrica
-iDownloadBlog.com
-iHarare News
-iMore
-iNFOnews.ca
-iTnews
+hnhh
 manilastandard.net
-mid-day
 mirror
 mobilesyrup
-myGC.com.au
-mynewsgh.com
-novinite.com
 sportskeeda
-tech.slashdot.org
-thenewpaper
-tsa
+the Guardian
 www.businessinsider.sg
 www.ctvnews.ca
-www.geo.tv
-GeekTyrant
-KTVO
-CoinDesk
-Designtaxi
-MacRumors
 SportsCafe
-KOMO News
-BusinessMirror
-Coinspeaker
-90min
-Kenyans.co.ke
-Motley Fool Australia
-The New Indian Express
