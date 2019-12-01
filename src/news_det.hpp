@@ -13,11 +13,11 @@
 
 std::vector<double> GenerateNewsDetFeatures(const DocFeatures& features) {
     auto title_upostags = features.Get("title:upostags");
-    auto text_upostags = features.Get("text:upostags");
-    auto text_feats = features.Get("text:feats");
-    title_upostags.insert(title_upostags.end(), text_upostags.begin(), text_upostags.end());
-    title_upostags.insert(title_upostags.end(), text_feats.begin(), text_feats.end());
-    DivVec(&title_upostags, 3);
+    //auto text_upostags = features.Get("text:upostags");
+    //auto text_feats = features.Get("text:feats");
+    //title_upostags.insert(title_upostags.end(), text_upostags.begin(), text_upostags.end());
+    //title_upostags.insert(title_upostags.end(), text_feats.begin(), text_feats.end());
+    //DivVec(&title_upostags, 3);
     return title_upostags;
 }
 
