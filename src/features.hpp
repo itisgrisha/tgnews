@@ -8,11 +8,12 @@
 #include <fstream>
 #include <memory>
 #include <initializer_list>
-#include <regex>
+//#include <regex>
 #include <unordered_map>
 #include <filesystem>
 
 #include <boost/algorithm/string.hpp>
+#include <boost/regex.hpp>
 
 #include "udpipe.h"
 #include "html_parse.hpp"
@@ -69,9 +70,11 @@ public:
 
 private:
     std::string CleanText(const std::string& input_text) {
-        std::regex https("https*:\\S*");
-        std::regex word("[^[\\p{L}]+\\.\\!\\?\\(\\)\\-:;,]+");
-        return std::regex_replace(std::regex_replace(input_text, https, " "), word, " ");
+        boost::regex https("https*:\\S*");
+        boost::regex word("[^[\\p{L}]+\\.\\!\\?\\(\\)\\-:;,]+");
+        //std::regex word("[^[\\p{L}]+\\.\\!\\?\\(\\)\\-:;,]+");
+        return boost::regex_replace(boost::regex_replace(input_text, https, " "), word, " ");
+        //return std::regex_replace(input_text, https, " ");
     }
 
     void UpdateFeats(DocFeatures* features,
