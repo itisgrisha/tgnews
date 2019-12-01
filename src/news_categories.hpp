@@ -87,6 +87,9 @@ private:
 
 
 std::shared_ptr<std::unordered_map<std::string, std::vector<DocFeatures>>> GetCategories(const std::vector<DocFeatures>& documents) {
+    artm::ConfigureLoggingArgs configure_logging_args;
+    configure_logging_args.set_minloglevel(4);
+    artm::ConfigureLogging(configure_logging_args);
     std::vector<std::string> categories = {
         "Society",
         "Economy",
