@@ -66,6 +66,11 @@ private:
 
 
 struct DocFeatures {
+    DocFeatures() {
+        lemmas_["text"] = {};
+        lemmas_["title"] = {};
+    }
+
     std::vector<double> Concat(const std::vector<std::string>& features_names) {
         std::vector<double> result;
         for (const auto& name : features_names) {
@@ -84,6 +89,7 @@ struct DocFeatures {
     }
 
     std::unordered_map<std::string, BOW> bows_;
+    std::unordered_map<std::string, std::unordered_map<size_t, float>> lemmas_;
     std::string doc_name_;
     std::string lang_;
     std::string url_;

@@ -10,6 +10,7 @@
 #include "features.hpp"
 #include "io.hpp"
 #include "news_det.hpp"
+#include "news_categories.hpp"
 
 
 int main(int argc, char *argv[]) {
@@ -21,10 +22,16 @@ int main(int argc, char *argv[]) {
         RecognizeLanguage(&docs);
         DumpLanguage(docs, input_folder);
     } else if (task == "news") {
-        RecognizeLanguage(&docs);
-        auto features = GenerateFeatures(docs, -1);
-        DetectNews(&features);
-        DumpNewsDet(features, input_folder);
+        auto langs_ruen = RecognizeLanguage(&docs);
+        auto features = GenerateFeatures(langs_ruen, -1);
+        auto news = DetectNews(&features);
+        DumpNewsDet(news, input_folder);
+    } else if (task == "categories") {
+        auto langs_ruen = RecognizeLanguage(&docs);
+        auto features = GenerateFeatures(langs_ruen, -1);
+        auto news = DetectNews(&features);
+        auto categories = GetCategories(news);
+        DumpNewsCat(categories, input_folder);
     } else if (task == "news_test") {
         RecognizeLanguage(&docs);
         auto features = GenerateFeatures(docs, -1);

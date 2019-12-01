@@ -47,7 +47,7 @@ void DetectNewsTask(std::vector<DocFeatures>* documents,
 }
 
 
-void DetectNews(std::vector<DocFeatures>* documents) {
+std::vector<DocFeatures> DetectNews(std::vector<DocFeatures>* documents) {
     LogisticRegression ru_model("models/news_ru_model.logreg");
     LogisticRegression en_model("models/news_en_model.logreg");
     size_t documents_count = documents->size();
@@ -67,4 +67,11 @@ void DetectNews(std::vector<DocFeatures>* documents) {
     for (auto& worker : workers) {
         worker.join();
     }
+    std::vector<DocFeatures> news;
+    for (auto& doc : *documents) {
+        if (doc.is_news_) {
+            news.emplace_back(std::move(doc));
+        }
+    }
+    return news;
 }

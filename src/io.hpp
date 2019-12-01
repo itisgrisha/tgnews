@@ -69,6 +69,21 @@ void DumpNewsDet(const std::vector<DocFeatures>& docs, const std::string& path_p
     std::cout << std::setw(2) << result << std::endl;
 }
 
+
+void DumpNewsCat(std::shared_ptr<std::unordered_map<std::string, std::vector<DocFeatures>>> cats2docs, const std::string& path_prefix) {
+    json result = json::array();
+    size_t prefix_len = path_prefix.size() + (path_prefix.back() != '/');
+    for (const auto& cat2doc : *cats2docs) {
+        std::vector<std::string> paths;
+        for (const auto& doc : cat2doc.second) {
+            paths.emplace_back(doc.doc_name_.substr(prefix_len));
+        }
+        result.emplace_back(json({{"category", cat2doc.first}, {"articles", paths}}));
+    }
+    std::cout << std::setw(2) << result << std::endl;
+}
+
+
 void DumpNewsDetTest(const std::vector<DocFeatures>& docs, const std::string& path_prefix) {
     json result;
     size_t prefix_len = path_prefix.size() + (path_prefix.back() != '/');
@@ -89,4 +104,17 @@ std::shared_ptr<BOWDict> ReadFeaturesNames(const std::string& path) {
         features_names->emplace(feature, feature_pos);
     }
     return features_names;
+}
+
+std::unordered_map<std::string, std::shared_ptr<BOWDict>> ReadLemmas(const std::string& path) {
+    std::unordered_map<std::string, std::shared_ptr<BOWDict>> text_lemmas;
+    text_lemmas["text"].reset(new BOWDict());
+    text_lemmas["title"].reset(new BOWDict());
+    std::ifstream input(path);
+    std::string lemma;
+    std::string class_id;
+    for (size_t feature_pos = 0; input >> lemma >> class_id; ++feature_pos) {
+        text_lemmas[class_id]->emplace(lemma, feature_pos);
+    }
+    return text_lemmas;
 }

@@ -47,9 +47,15 @@ target_link_libraries(tgnews
     ${CMAKE_SOURCE_DIR}/src/bigartm/build/lib/libartm-static.a
     ${CMAKE_SOURCE_DIR}/src/bigartm/build/lib/libmessages_proto.a
     ${CMAKE_SOURCE_DIR}/src/bigartm/build/lib/libinternals_proto.a
+    ${CMAKE_SOURCE_DIR}/src/bigartm/build/lib/libgflags.a
+    ${CMAKE_SOURCE_DIR}/src/bigartm/build/lib/libglog.a
     ${CMAKE_SOURCE_DIR}/src/bigartm/build/lib/libprotoc.a
     ${CMAKE_SOURCE_DIR}/src/bigartm/build/lib/libprotobuf.a
     -lpthread
+    -lboost_system
+    -lboost_thread
+    -lboost_filesystem
+    -lboost_iostreams
     #-lprotobuf
 )
 

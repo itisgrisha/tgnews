@@ -10,10 +10,13 @@
 #include <initializer_list>
 #include <unordered_map>
 
+#include <boost/algorithm/string.hpp>
+
 #include "udpipe.h"
 #include "html_parse.hpp"
 #include "io.hpp"
 #include "common.h"
+
 
 namespace udpipe = ufal::udpipe;
 
@@ -31,6 +34,8 @@ public:
         }
         upostags_dict_ = ReadFeaturesNames("meta/Upostags.txt");
         feats_dict_ = ReadFeaturesNames("meta/Feats.txt");
+        //lemmas_dict_ = ReadFeaturesNames("meta/Lemmas.txt");
+        lemmas_dict_ = ReadLemmas("meta/Lemmas.txt");
     }
 
     DocFeatures GenerateFeatures(const HTMLDocument& doc, int sentences_count) {
@@ -48,8 +53,10 @@ public:
             sentences_count = 1'000'000;
         }
 
-        UpdateUDPipe(&features, model, reader, doc.GetText(), {"text:upostags", "text:feats"}, sentences_count);
-        UpdateUDPipe(&features, model, reader, doc.GetMeta("og:title"), {"title:upostags", "title:feats"}, 1'000'000);
+        UpdateUDPipe(&features, model, reader, doc.GetText(),
+            {"text:upostags", "text:feats", "text"}, sentences_count);
+        UpdateUDPipe(&features, model, reader, doc.GetMeta("og:title"),
+            {"title:upostags", "title:feats", "title"}, sentences_count);
 
         return features;
     }
@@ -71,6 +78,18 @@ private:
         }
     }
 
+    void UpdateLemma(DocFeatures* features,
+                     std::string lemma,
+                     std::shared_ptr<BOWDict> lemmas_dict,
+                     const std::string& class_id) {
+        boost::erase_all(lemma, ":");
+        auto it = lemmas_dict->find(lemma);
+        if (it != lemmas_dict->end()) {
+            //std::cout << "found lemma " << it->first << ": " << it->second << std::endl;
+            ++features->lemmas_[class_id][it->second];
+        }
+    }
+
     void UpdateUDPipe(DocFeatures* features,
                       const pModel& model,
                       pReader& reader,
@@ -80,6 +99,8 @@ private:
         reader->reset_document("");
         reader->set_text(text_view.data());
         auto& upostags_bow = features->bows_.at(features_names[0]);
+        std::unordered_set<std::string> lemma_upostags = {"ADJ", "INTJ", "NOUN", "PROPN", "VERB"};
+        auto lemmas_dict = lemmas_dict_.at(features_names[2]);
         for (int total_sentences = 0;
              (total_sentences < sentences_count) && reader->next_sentence(sentence_, error_message_);
              ++total_sentences) {
@@ -87,6 +108,9 @@ private:
             //model->parse(sentence_, udpipe::pipeline::DEFAULT, error_message_);
             for (auto word = sentence_.words.begin()+1; word != sentence_.words.end(); ++word) {
                 upostags_bow.Update(word->upostag);
+                if (lemma_upostags.find(word->upostag) != lemma_upostags.end()) {
+                    UpdateLemma(features, word->lemma, lemmas_dict, features_names[2]);
+                }
                 UpdateFeats(features, word->feats, features_names[1]);
             }
         }
@@ -99,6 +123,8 @@ private:
 
     std::shared_ptr<BOWDict> upostags_dict_;
     std::shared_ptr<BOWDict> feats_dict_;
+    std::unordered_map<std::string, std::shared_ptr<BOWDict>> lemmas_dict_;
+    std::unordered_set<std::string> categories_;
 
     static constexpr std::initializer_list kLangs = {"ru", "en"};
 };

@@ -53,7 +53,7 @@ void RecogTask(std::vector<HTMLDocument>* documents,
 }
 
 
-void RecognizeLanguage(std::vector<HTMLDocument>* documents, bool use_lists=true) {
+std::vector<HTMLDocument> RecognizeLanguage(std::vector<HTMLDocument>* documents, bool use_lists=true) {
     auto site2lang = GetUrl2Lang();
     chrome_lang_id::NNetLanguageIdentifier langrec(0, 1000);
     size_t step = std::max<size_t> (1u, documents->size() / kNumThreads);
@@ -67,6 +67,14 @@ void RecognizeLanguage(std::vector<HTMLDocument>* documents, bool use_lists=true
     for (auto& worker : workers) {
         worker.join();
     }
+    std::vector<HTMLDocument> recognized;
+    for (auto& doc : *documents) {
+        auto doc_lang = doc.GetMeta("lang");
+        if (doc_lang == "ru" || doc_lang == "en") {
+            recognized.emplace_back(std::move(doc));
+        }
+    }
+    return recognized;
 }
 
 std::vector<HTMLDocument> GetRuEnDocs(std::vector<HTMLDocument>* docs) {
