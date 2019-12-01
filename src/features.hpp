@@ -8,6 +8,7 @@
 #include <fstream>
 #include <memory>
 #include <initializer_list>
+#include <regex>
 #include <unordered_map>
 
 #include <boost/algorithm/string.hpp>
@@ -34,7 +35,6 @@ public:
         }
         upostags_dict_ = ReadFeaturesNames("meta/Upostags.txt");
         feats_dict_ = ReadFeaturesNames("meta/Feats.txt");
-        //lemmas_dict_ = ReadFeaturesNames("meta/Lemmas.txt");
         lemmas_dict_ = ReadLemmas("meta/Lemmas.txt");
     }
 
@@ -62,7 +62,15 @@ public:
     }
 
 private:
-    void UpdateFeats(DocFeatures* features, std::string_view feats, const std::string& feats_name) {
+    std::string CleanText(const std::string& input_text) {
+        std::regex https("https*:\\S*");
+        std::regex word("[^[\\p{L}]+\\.\\!\\?\\(\\)\\-:;,]+");
+        return std::regex_replace(std::regex_replace(input_text, https, " "), word, " ");
+    }
+
+    void UpdateFeats(DocFeatures* features,
+                     std::string_view feats,
+                     const std::string& feats_name) {
         auto begin = feats.begin();
         auto end = feats.begin();
         auto& feats_bow = features->bows_.at(feats_name);
@@ -85,7 +93,6 @@ private:
         boost::erase_all(lemma, ":");
         auto it = lemmas_dict->find(lemma);
         if (it != lemmas_dict->end()) {
-            //std::cout << "found lemma " << it->first << ": " << it->second << std::endl;
             ++features->lemmas_[class_id][it->second];
         }
     }
@@ -93,11 +100,19 @@ private:
     void UpdateUDPipe(DocFeatures* features,
                       const pModel& model,
                       pReader& reader,
-                      std::string_view text_view,
+                      const std::string& input_text,
                       std::vector<std::string> features_names,
                       int sentences_count) {
+        //std::cout << "BEFORE\n" << input_text << std::endl;
+        auto text = CleanText(input_text);
+        //std::cout << "AFTER\n" << text << std::endl;
+
+        //for (int i = 0; i < 80; ++i){
+        //    std::cout << "-";
+        //}
+        std::cout << std::endl;
         reader->reset_document("");
-        reader->set_text(text_view.data());
+        reader->set_text(text.c_str());
         auto& upostags_bow = features->bows_.at(features_names[0]);
         std::unordered_set<std::string> lemma_upostags = {"ADJ", "INTJ", "NOUN", "PROPN", "VERB"};
         auto lemmas_dict = lemmas_dict_.at(features_names[2]);
@@ -105,7 +120,6 @@ private:
              (total_sentences < sentences_count) && reader->next_sentence(sentence_, error_message_);
              ++total_sentences) {
             model->tag(sentence_, udpipe::pipeline::DEFAULT, error_message_);
-            //model->parse(sentence_, udpipe::pipeline::DEFAULT, error_message_);
             for (auto word = sentence_.words.begin()+1; word != sentence_.words.end(); ++word) {
                 upostags_bow.Update(word->upostag);
                 if (lemma_upostags.find(word->upostag) != lemma_upostags.end()) {
