@@ -10,6 +10,7 @@
 #include <initializer_list>
 #include <regex>
 #include <unordered_map>
+#include <filesystem>
 
 #include <boost/algorithm/string.hpp>
 
@@ -20,6 +21,7 @@
 
 
 namespace udpipe = ufal::udpipe;
+namespace fs = std::filesystem;
 
 using pModel = std::unique_ptr<udpipe::model>;
 using pReader = std::unique_ptr<udpipe::input_format>;
@@ -28,8 +30,10 @@ using pReader = std::unique_ptr<udpipe::input_format>;
 class FeaturesGenerator {
 public:
     FeaturesGenerator() {
+        auto prefix = fs::path("models");
         for (const auto& lang : kLangs) {
-            auto model_path = std::string("models/").append(lang).append(".udpipe");
+            auto model_name = std::string(lang).append(".udpipe");
+            auto model_path = (prefix / lang / model_name).string();
             models_[lang].reset(udpipe::model::load(model_path.c_str()));
             readers_[lang].reset(models_[lang]->new_tokenizer("tokenizer")->new_generic_tokenizer_input_format());
         }
