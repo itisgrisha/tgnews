@@ -90,6 +90,7 @@ struct DocFeatures {
 
     std::unordered_map<std::string, BOW> bows_;
     std::unordered_map<std::string, std::unordered_map<size_t, float>> lemmas_;
+    std::string title_;
     std::string doc_name_;
     std::string lang_;
     std::string url_;

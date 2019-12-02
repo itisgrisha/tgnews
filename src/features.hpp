@@ -171,6 +171,7 @@ void GenerateFeaturesTask(std::vector<DocFeatures>* features,
         feature.doc_name_ = doc.GetMeta("path");
         feature.lang_ = lang;
         feature.url_ = doc.GetMeta("og:url");
+        feature.title_ = doc.GetMeta("og:title");
     }
 }
 

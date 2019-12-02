@@ -41,6 +41,13 @@ int main(int argc, char *argv[]) {
         auto threads = GetThreads(news);
         DumpNewsThreads(threads, input_folder);
     } else if (task == "top") {
+        auto langs_ruen = RecognizeLanguage(&docs);
+        auto features = GenerateFeatures(langs_ruen, -1);
+        auto news = DetectNews(&features);
+        auto categories = GetCategories(news);
+        std::cout << "[]\n";
+        //auto tops = GetTops(categories);
+        //DumpNewsTops(tops, input_folder);
     } else if (task == "news_test") {
         RecognizeLanguage(&docs);
         auto features = GenerateFeatures(docs, -1);
