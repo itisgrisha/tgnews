@@ -40,10 +40,10 @@ void DetectNewsTask(std::vector<DocFeatures>* documents,
             doc.is_news_ = true;
         } else if (doc.lang_ == "ru") {
             doc.is_news_score = ru_model.Infer(GenerateNewsDetFeatures(doc));
-            doc.is_news_ = doc.is_news_score > 0.5;
+            doc.is_news_ = doc.is_news_score > 0.3;
         } else if (doc.lang_ == "en") {
             doc.is_news_score = en_model.Infer(GenerateNewsDetFeatures(doc));
-            doc.is_news_ = doc.is_news_score > 0.5;
+            doc.is_news_ = doc.is_news_score > 0.3;
         }
         //std::cout << url << " is news: " << doc.is_news_score << std::endl;
     }

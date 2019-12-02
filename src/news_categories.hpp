@@ -72,7 +72,7 @@ public:
         auto num_docs = theta.item_title_size();
         for (size_t doc_idx = 0; doc_idx < num_docs; ++doc_idx) {
             for (size_t cat_idx = 0; cat_idx + 1 < num_topics; ++cat_idx) {
-                if (theta.item_weights(doc_idx).value(cat_idx) > 0.2) {
+                if (theta.item_weights(doc_idx).value(cat_idx) > 0.3) {
                     cat2doc->at(theta.topic_name(cat_idx)).emplace_back(documents.at(doc_idx));
                 }
             }
