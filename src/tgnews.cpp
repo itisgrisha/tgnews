@@ -11,6 +11,7 @@
 #include "io.hpp"
 #include "news_det.hpp"
 #include "news_categories.hpp"
+#include "news_threads.hpp"
 
 
 int main(int argc, char *argv[]) {
@@ -32,6 +33,14 @@ int main(int argc, char *argv[]) {
         auto news = DetectNews(&features);
         auto categories = GetCategories(news);
         DumpNewsCat(categories, input_folder);
+    } else if (task == "threads") {
+        auto langs_ruen = RecognizeLanguage(&docs);
+        auto features = GenerateFeatures(langs_ruen, -1);
+        auto news = DetectNews(&features);
+        //auto categories = GetCategories(news);
+        auto threads = GetThreads(news);
+        DumpNewsThreads(threads, input_folder);
+    } else if (task == "top") {
     } else if (task == "news_test") {
         RecognizeLanguage(&docs);
         auto features = GenerateFeatures(docs, -1);

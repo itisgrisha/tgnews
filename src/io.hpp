@@ -84,6 +84,18 @@ void DumpNewsCat(std::shared_ptr<std::unordered_map<std::string, std::vector<Doc
     std::cout << std::setw(2) << result << std::endl;
 }
 
+void DumpNewsThreads(const std::unordered_map<std::string, std::vector<DocFeatures>>& threads2docs, const std::string& path_prefix) {
+    json result = json::array();
+    size_t prefix_len = path_prefix.size() + (path_prefix.back() != '/');
+    for (const auto& thread2docs : threads2docs) {
+        std::vector<std::string> paths;
+        for (const auto& doc : thread2docs.second) {
+            paths.emplace_back(doc.doc_name_.substr(prefix_len));
+        }
+        result.emplace_back(json({{"title", std::string(thread2docs.first)}, {"articles", paths}}));
+    }
+    std::cout << std::setw(2) << result << std::endl;
+}
 
 void DumpNewsDetTest(const std::vector<DocFeatures>& docs, const std::string& path_prefix) {
     json result;
